@@ -1,6 +1,7 @@
 import React from "react";
 import Joi from "joi";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Switch } from "react-if";
@@ -99,10 +100,26 @@ const CheckImeiPage = () => {
               <input {...register("terms")} id='checkTerms' type={"checkbox"} />
               <label htmlFor='checkTerms'></label>
             </div>
-            <p className='text-2'>
-              Acepto los <u className='font-bold'>terminos y condiciones</u> de
-              este seguro.
-            </p>
+            <Switch>
+              <Case condition={state.from === "/all-secure"}>
+                <p className='text-2'>
+                  Acepto los
+                  <Link to='/all-secure-terms-condition'>
+                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  </Link>
+                  de este seguro.
+                </p>
+              </Case>
+              <Case condition={state.from === "/screen-secure"}>
+                <p className='text-2'>
+                  Acepto los
+                  <Link to='/screen-secure-terms-condition'>
+                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  </Link>
+                  de este seguro.
+                </p>
+              </Case>
+            </Switch>
           </div>
           <ErrorMessage
             widthClass='mt-1'

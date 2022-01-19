@@ -15,6 +15,8 @@ import AllSecurePage from "./pages/all-secure/all-secure-page";
 import ScreenSecurePage from "./pages/screen-secure/screen-secure-page";
 import CheckImeiPage from "./pages/check-imei/check-imei-page";
 import CheckSecurePage from "./pages/check-secure/check-secure-page";
+import TermsConditionsScreenSecurePage from "./pages/terms-conditions-screen-secure/terms-conditions-screen-secure-page";
+import TermsConditionsAllSecurePage from "./pages/terms-conditions-all-secure/terms-conditions-all-secure-page";
 
 function App() {
   const client = new QueryClient();
@@ -29,6 +31,16 @@ function App() {
             <Route exact path={"/screen-secure"} component={ScreenSecurePage} />
             <Route exact path={"/check-imei"} component={CheckImeiPage} />
             <Route exact path={"/check-secure"} component={CheckSecurePage} />
+            <Route
+              exact
+              path={"/screen-secure-terms-condition"}
+              component={TermsConditionsScreenSecurePage}
+            />
+            <Route
+              exact
+              path={"/all-secure-terms-condition"}
+              component={TermsConditionsAllSecurePage}
+            />
           </ImeiProvider>
         </Switch>
       </Router>
