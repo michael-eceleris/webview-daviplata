@@ -1,0 +1,25 @@
+header {
+  background-color: var(--color-primary);
+  width: 100vw;
+  height: 56px;
+  display: flex;
+  padding: 0px 8px;
+  align-items: center;
+}
+
+header h2 {
+  margin: 0 auto;
+}
+.container--icon {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main--container {
+  padding: 16px;
+}
