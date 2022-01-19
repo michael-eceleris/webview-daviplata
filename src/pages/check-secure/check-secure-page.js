@@ -2,13 +2,22 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { Switch } from "react-if";
 import { Case } from "react-if";
+import { When } from "react-if";
+import { Unless } from "react-if";
 
 import Container from "../../components/layout/Container";
 import Button from "../../components/buttons/button";
 import SmallBrand from "../../components/brand/small-brand";
+import Input from "../../components/inputs/input";
+import SkeletonCard from "../../components/skeleton/card";
+import { useImei } from "../../providers/imei/imeiProvider";
+import { useCheckImei } from "../../services/imei/useCheckImei";
+import { CurrencyValue } from "../../utils/currencyValue";
 
 const CheckSecurePage = () => {
   const { state } = useLocation();
+  const { imei, terms } = useImei();
+  const { data, isLoading } = useCheckImei();
   return (
     <Container>
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
@@ -28,40 +37,53 @@ const CheckSecurePage = () => {
             </p>
           </div>
           <h2 className='mt-4'>IMEI</h2>
-          <input
-            type={"text"}
+          <Input
+            type={"number"}
             className={`text-input-empty text-1 mt-2`}
             placeholder='Ingrese el IMEI de su celular'
-            value='12312312312'
+            isPrechargue={false}
+            isFilled={true}
+            readOnly
+            value={imei}
           />
-          <div className='rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-6'>
-            <div className='flex justify-between pb-3.5 card--product--division'>
-              <div className='text-left w-3/6'>
-                <p className='text-2 font--gray-dark'>Marca de su celular</p>
-                <h4>Huawei</h4>
+          <When condition={!isLoading}>
+            <div className='rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-6'>
+              <div className='flex justify-between pb-3.5 card--product--division '>
+                <div className='text-left w-3/6'>
+                  <p className='text-2 font--gray-dark'>Marca de su celular</p>
+                  <h4>{data?.brand}</h4>
+                </div>
+                <div className='text-right w-3/6'>
+                  <p className='text-2 font--gray-dark'>Referencia</p>
+                  <h4>{data?.model}</h4>
+                </div>
               </div>
-              <div className='text-right w-3/6'>
-                <p className='text-2 font--gray-dark'>Referencia</p>
-                <h4>P30 Lite (256 GB)</h4>
+              <div className='flex justify-between pt-4'>
+                <div className='text-left w-3/6'>
+                  <p className='text-2 font--gray-dark'>Valor del seguro</p>
+                  <h4>${CurrencyValue(data?.secureValue)}</h4>
+                </div>
+                <div className='text-right w-3/6'>
+                  <p className='text-2 font--gray-dark'>Valor asegurado</p>
+                  <h4>${CurrencyValue(data?.insuranceValue)}</h4>
+                  <p className='text-2 font--gray-dark'>
+                    Sujeto a cambios de precio del celular en el mercado
+                  </p>
+                </div>
               </div>
             </div>
-            <div className='flex justify-between pt-4'>
-              <div className='text-left w-3/6'>
-                <p className='text-2 font--gray-dark'>Valor del seguro</p>
-                <h4>$200.000</h4>
-              </div>
-              <div className='text-right w-3/6'>
-                <p className='text-2 font--gray-dark'>Valor asegurado</p>
-                <h4>$1'500.000</h4>
-                <p className='text-2 font--gray-dark'>
-                  Sujeto a cambios de precio del celular en el mercado
-                </p>
-              </div>
-            </div>
-          </div>
+          </When>
+          <Unless condition={!isLoading}>
+            <SkeletonCard />
+          </Unless>
           <div className='flex mt-7'>
             <div className='w-2/12 flex'>
-              <input id='checkTerms' type={"checkbox"} />
+              <input
+                readOnly
+                id='checkTerms'
+                type={"checkbox"}
+                checked={terms}
+              />
               <label htmlFor='checkTerms'></label>
             </div>
             <p className='text-2'>

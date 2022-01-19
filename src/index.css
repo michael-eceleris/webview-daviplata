@@ -208,13 +208,16 @@ h4 {
   bottom: 0px;
   left: calc(50% - 68px);
 }
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 100%;
   padding-bottom: 7px;
 }
 
 input[type="text"]:focus,
-input[type="text"]:focus-visible {
+input[type="text"]:focus-visible,
+input[type="number"]:focus,
+input[type="number"]:focus-visible {
   outline: none;
 }
 
@@ -279,4 +282,25 @@ input[type="checkbox"]:checked + label::before {
 
 .card--product--division {
   border-bottom: 1px solid var(--color-gray-light);
+}
+
+.skeleton--card {
+  background: linear-gradient(
+    90deg,
+    hsl(210, 15%, 88%),
+    hsl(210, 15%, 95%),
+    hsl(210, 15%, 88%)
+  );
+  background-size: 200%;
+  animation: loader 1s infinite reverse;
+}
+
+/* skeleton animation */
+@keyframes loader {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
 }

@@ -4,6 +4,10 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
+import { QueryClient } from "react-query";
+import { QueryClientProvider } from "react-query";
+
+import { ImeiProvider } from "./providers/imei/imeiProvider";
 
 import Header from "./components/layout/Header";
 import HomePage from "./pages/home/home-page";
@@ -13,17 +17,22 @@ import CheckImeiPage from "./pages/check-imei/check-imei-page";
 import CheckSecurePage from "./pages/check-secure/check-secure-page";
 
 function App() {
+  const client = new QueryClient();
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path={"/"} component={HomePage} />
-        <Route exact path={"/all-secure"} component={AllSecurePage} />
-        <Route exact path={"/screen-secure"} component={ScreenSecurePage} />
-        <Route exact path={"/check-imei"} component={CheckImeiPage} />
-        <Route exact path={"/check-secure"} component={CheckSecurePage} />
-      </Switch>
-    </Router>
+    <QueryClientProvider client={client}>
+      <Router>
+        <Header />
+        <Switch>
+          <ImeiProvider>
+            <Route exact path={"/"} component={HomePage} />
+            <Route exact path={"/all-secure"} component={AllSecurePage} />
+            <Route exact path={"/screen-secure"} component={ScreenSecurePage} />
+            <Route exact path={"/check-imei"} component={CheckImeiPage} />
+            <Route exact path={"/check-secure"} component={CheckSecurePage} />
+          </ImeiProvider>
+        </Switch>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
