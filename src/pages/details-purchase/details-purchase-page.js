@@ -72,7 +72,7 @@ const DetailsPurchase = () => {
     create(values).then((res) => {
       if (res.status === 200) {
         push({
-          pathname: "/check-secure",
+          pathname: "/complete-purchase",
           state,
         });
       } else {

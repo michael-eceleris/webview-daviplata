@@ -17,6 +17,7 @@ import ScreenSecurePage from "./pages/screen-secure/screen-secure-page";
 import CheckImeiPage from "./pages/check-imei/check-imei-page";
 import CheckSecurePage from "./pages/check-secure/check-secure-page";
 import DetailsPurchase from "./pages/details-purchase/details-purchase-page";
+import PurchaseComplete from "./pages/purchase-complete/purchase-complete-page";
 import TermsConditionsScreenSecurePage from "./pages/terms-conditions-screen-secure/terms-conditions-screen-secure-page";
 import TermsConditionsAllSecurePage from "./pages/terms-conditions-all-secure/terms-conditions-all-secure-page";
 
@@ -42,6 +43,11 @@ function App() {
                 exact
                 path={"/details-purchase"}
                 component={DetailsPurchase}
+              />
+              <Route
+                exact
+                path={"/complete-purchase"}
+                component={PurchaseComplete}
               />
               <Route
                 exact
