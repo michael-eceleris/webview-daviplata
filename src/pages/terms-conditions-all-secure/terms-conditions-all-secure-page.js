@@ -10,127 +10,206 @@ const TermsConditionsAllSecurePage = () => {
     <Container>
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
         <div className='bg-white rounded-2xl px-4 md:px-8 lg:px-8 py-6'>
-          <h1 className='mb-4'>
-            Términos y Condiciones Producto Fractura de Pantalla - Daviplata
-          </h1>
-          <h2>Términos y Condiciones</h2>
+          <h1 className='mb-4 text-center'>Términos y Condiciones</h1>
           <p className='text-1 mb-4'>
-            Esta dirigido a todos los usuarios que tenga una cuenta en DaviPlata
-            y que requierem asegurar su equipo celular usado contra Fractura de
-            Pantalla.
+            Aplica una (1) reclamación (solicitud) por vigencia por fractura de
+            pantalla.
           </p>
-          <h2>Vigencia</h2>
-          <p className='text-1 mb-4'>6 meses</p>
-          <h2>Recobro</h2>
           <p className='text-1 mb-4'>
-            Una vez aprobada la reclamación, el asegurado debe cancelar un
-            deducible equivalente al 35% del valor de la reparación de pantalla.
+            No aplica para Netbooks, Plantas, Tablets, Phablets, Módems o
+            equipos comprados con fecha anteriores al inicio de la promoción.
           </p>
-          <h2>Detalle de la Cobertura</h2>
           <p className='text-1 mb-4'>
-            El usuario tiene derecho a 1 (una) reclamación por vigencia (6
-            meses).
+            La reparación de la pantalla no cubre: daños en la tarjeta
+            principal, módulos de pantalla, carcasas laterales, batería, ni
+            daños por humedad en el equipo, ni manipulación en servicio técnico.
           </p>
-          <h2>Términos y Condiciones asistencia de Pantalla</h2>
+          <p className='text-1 mb-4'>
+            La reparación y logística de la cobertura de protección de pantalla
+            se realizará con el servicio técnico autorizado por ACINCO SAS.
+          </p>
+          <p className='text-1 mb-4'>
+            No aplica para equipos comprados en otros países.
+          </p>
+          <p className='text-1 mb-4'>
+            Si al momento de la reparación del producto este presenta otra clase
+            de daños diferentes a la ruptura de la pantalla, este valor deberá
+            ser asumido por el usuario.
+          </p>
+          <p className='text-1 mb-4'>
+            La prestación de los servicios de asistencia se hará única y
+            excluisivamente con la reparación de la pantalla; Si al momento de
+            la reparación de la pantalla, el equipo de telefonía móvil presenta
+            otra clase de daños diferentes a la fractura de la pantalla, los
+            valores y gastos adicionlaes deberán ser asumidos por el usuario.
+          </p>
+          <p className='text-1 mb-4'>
+            Para la reparación en algunas marcas o referencias, ACINCO S.A.S.
+            podrá utilizar repuestos o partes genéricas de categoría triple A.
+          </p>
+          <p className='text-1 mb-4'>
+            ACINCO S.A.S. prestará la asistencia a través del operador de
+            servicio técnico autorizado por este y que será informado al usuario
+            en la orden de reparación. El usuario deberá dirigirse al punto del
+            operador logístico indicado por ACINCO S.A.S para coordinar la
+            reparación y entrega del equipo.
+          </p>
+          <p className='text-1 mb-4'>
+            Una vez el operador efectué la revisión técnia y realice el
+            diagnóstico del equipo, le cominucará al usuario los tiempos de
+            entrega del equipo, así como el hallazgo de daños adicionales que
+            puedan encontrarse en el mismo. En caso de que el equipo móvil
+            cuente con daños adicionales, distintos a losdispuestos en la
+            cobertura de la asistencia, el operador cotizará estos valores y el
+            usuario será quien decida si asume estos valores adicionales, es
+            caso de que el usuario no acepte asumir estos gastos adicionales,
+            ACINCO S.A.S deberá enviar por escrito al correo electrónico
+            indicado, las razones de la no reparación y le entregará el equipo
+            móvil.
+          </p>
+          <p className='text-1 mb-4'>
+            En el momento en que el equipo móvil se encuentre reparado, esté
+            será enviado a la dirección indicada por el usuario. ACINCO S.A.S.,
+            contará con máximo nueve (9) días hábiles para entregar el equipo
+            reparado, contados desde la entrega del equipo al operador logístico
+            si no tiene ningún daño adicional, en el evento en que lo tenga, los
+            nueves (9) días empezarán a contar desde la autorización otorgada
+            por el usuario para reparar los daños adicionales del equipo.
+          </p>
+          <h2>Condiciones Generales</h2>
+          <p className='text-1 mb-4'>
+            La asistencia de protección de pantalla es asistida por ACINCO
+            S.A.S., la cual cubre una (1) reclamacion (solicitud) por la rotura
+            accidental de pantalla por una vigencia de doce (12) meses a partir
+            de la fecha de adquisición de la póliza.
+          </p>
+          <p className='text-1 mb-4'>
+            Estarán excluidos del servicio todos aquellos eventos originados,
+            basados o atribuibles, de manera directa o inderecta a:
+          </p>
           <ul className='list-daviplata ml-5 mt-3 mb-4'>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Aplica para terminales cuyo precio sea menor o igual de
-                $6.500.000 IVA no incluido.
+                Lucro cesante, o pérdidas consecuenciales.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Para fractura de pantalla, a título de indemnización se
-                realizará la reparación o el cambio de la pantalla.
+                Uso indebido, incorrecto o ilícito del equipo de telefonía
+                móvil.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                No aplica para Netbooks, Plantas, Tablets, Phablets, Módems o
-                equipos comprados con fechas anteriores al inicio de la
-                promoción.
+                Daños que no sean consecuencia de un evento accidental, súbito e
+                imprevisto, esto es, daños o pérdidas causados por el uso u
+                operación ordinaria del celular, tales como desgaste,
+                deformación, corrosión, herrumbe y deterioro por falta de uso o
+                proveniente de las condiciones atmosféricas normales.
+                Independientement de las causas de la pérdida.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                La reparación de la pantalla no cubre: daños en la tarjeta
-                principal, módulos de pantalla, carcasas laterales, batería, ni
-                daños por humedad en el equipo.
+                Dolo, culpa grave o mala fe del usuario, de sus representantes o
+                de un tercero autorizado por el usuario.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                La reparación y logística de la cobertura de protección de
-                pantalla se realizará con el servicio técnico autorizado por Axa
-                Colpatria Seguros S.A.
+                Motín, conmoción civil o popular, vandalismo y actos mal
+                intencionados de terceros.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                No aplica para equipos comprados en otros países.
+                Decomiso o embargo del bien asistido.
               </p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Si al momento de la reparación del producto este presenta otra
-                clase de daños diferentes a la ruptura de la pantalla, este
-                valor deberá ser asumido por el usuario.
+                Pérdidas causadas o resultantes de acciones gubernamentales,
+                tales como confiscación, incautación o destrucción del bien
+                asistido por orden de autoridad gubernamental competente.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Costos por pérdidas de datos, programas o información.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Pérdidas por fraudes o actos deshonestos de terceros, tales como
+                clonación y similares.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Hurto parcial del bien asistido (hurto de sus partes, de sus
+                componentes o de sus periféricos).
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Extravío total o parcial del bien asistido.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Pérdidas como consecuencia de que el usuario, o cualquier
+                persona a quien éste le haya confiado el bien asistado, se haya
+                despendido intencionalmente de la misma.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Pérdidas o daños de elementos considerados accesorios o
+                periféricos del bien asistido como baterías, audífonos, manos
+                libres, forros, teclados y cargadores, y accesorios similares.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Daños y/o deterioro del equipo, de los cuales sea responsable el
+                fabricante o proveedor de los bienes o aquellos que estén
+                cubiertos por la garantía del equipo.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Fallas lógicas causadas al equipo terminal por virtus o
+                descargas de internet o como consecuencia de la culpa grave del
+                usuario o de un tercer autorizado por este.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Reparaciones no autorizadas o realizadas por fuera de los
+                centros técnios especializados avalados por Acinco.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>Daños por variacion de voltaje.</p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Cuando verificados o analizados los documentos e informacion
+                aportada por el usuario en la solicitud de asistencia, se
+                evidencien inconsistencias en la información suminstrada.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
+                Cuando en la declaración de los hechos que dieron origen a la
+                fractura de la pantalla del equipo de telefonía móvil, el
+                usuario no haya manifestado de manera correcta, clara, veraz y
+                suficiente por qué el equipo de telefonía móvil presentaba
+                actividad con una sim card diferente a la registrada
+                inicialmente con el equipo de telefonía móvil.
               </p>
             </li>
           </ul>
-          <h2>Condiciones Generales</h2>
-          <p className='text-1 mb-4'>
-            El Seguro para Equipo de Telefonía Móvil es un seguro respaldado por
-            Axa Colpatria Seguros S.A., el cual cubre el evento por fractura de
-            pantalla, con vigencias anuales contados a partir de la fecha de
-            adquisición de la póliza.
-          </p>
-          <p className='text-1 mb-4'>
-            La renovación es automática e implica el pago de prima
-          </p>
-          <p className='text-1 mb-4'>
-            Estarán excluidos todos aquellos eventos originados, basados o
-            atribuibles a:
-          </p>
-          <p className='text-1 mb-4'>
-            Lucro cesante, o pérdidas consecuenciales.
-          </p>
-          <p className='text-1 mb-4'>
-            Daños que sufra el equipo como consecuencia del dolo o la culpa
-            grave del usuario o de un tercero autorizado por este.
-          </p>
-          <p className='text-1 mb-4'>
-            Dolo, culpa grave o mala fe del usuario o de sus representantes.
-          </p>
-          <p className='text-1 mb-4'>
-            Motín, conmoción civil o popular,vandalismo y actos mal
-            intencionados de terceros.
-          </p>
-          <p className='text-1 mb-4'>
-            Acciones militares, guerra civil o internacional, asonada, motín,
-            conmoción civil, huelgas, conflictos colectivos de trabajo o
-            suspensión de hecho de labores y consecuencias de las medidas
-            adoptadas.
-          </p>
-          <p className='text-1 mb-4'>Decomiso o embargo del bien asistido.</p>
-          <p className='text-1 mb-4'>
-            Pérdidas causadas o resultantes de acciones gubernamentales, tales
-            como confiscación, incautación o destrucción del bien asistido por
-            orden de autoridad gubernamental competente.
-          </p>
-          <p className='text-1 mb-4'>
-            Pérdidas por fraudes o actos deshonestos de terceros, tales como
-            clonación y similares.
-          </p>
-          <p className='text-1 mb-4'>
-            Pérdias o daños de elementos considerados accesorios del bien
-            asegurado como baterías, audifonos, manos libres, forros y
-            cargadores, entre otros.
-          </p>
-          <p className='text-1 mb-4'>
-            Demás exclusiones consignadas en el clausulado general.
-          </p>
           <h2>Atención al Cliente</h2>
           <p className='text-1 mb-4'>
             La reclamación del servicio se puede realizar a través de la línea
@@ -149,9 +228,11 @@ const TermsConditionsAllSecurePage = () => {
           <ul className='list-daviplata ml-5 mt-3 mb-4'>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Formato de reclamación debidamente diligenciado por el cliente
-                tachaduras o enmendaduras.
+                Formato de solicitud debidamente diligenciado.
               </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>Factura de compra del equipo.</p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
@@ -159,13 +240,9 @@ const TermsConditionsAllSecurePage = () => {
               </p>
             </li>
             <li className='li-daviplata'>
-              <p className='text-1 mb-2'>Fractura de compra del equipo.</p>
-            </li>
-            <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Para clientes pymes o corporativos se requiere: Certificado de
-                cámara de comercio y fotocopia del documentos de identificación
-                (ampliado al 150%) del representante legal (persona jurídica).
+                Tres (3) fotos de la pantalla quebrada (desde un ángulo frontal,
+                lateral y posterior del equipo).
               </p>
             </li>
             <li className='li-daviplata'>
@@ -180,8 +257,8 @@ const TermsConditionsAllSecurePage = () => {
               </p>
             </li>
           </ul>
-          <p className='text-1 mb-2'>
-            En un máximo de 5 días hábiles de radicar la documentación, se
+          <p className='text-1 mb-4'>
+            En un máximo de (5) días hábiles de radicar la documentación, se
             analizarán los documentos y se indicará el estado de esta, si la
             reclamación es preaprobada, se enviará una solicitud de pago del
             deducible y una orden de cambio de equipo (hurto simple, hurto
@@ -190,6 +267,25 @@ const TermsConditionsAllSecurePage = () => {
             logístico autorizado a nivel nacional para luego ser trasladado al
             taller para su reparación o recogido en la dirección indicada por el
             cliente.
+          </p>
+          <p className='text-1 mb-4'>
+            Si por el contrario ACINCO S.A.S. da una respuesta negativa a la
+            reclamación, deberá notificarle al usuario por escrito vía correo
+            electrónico, las caulsaes de objeción para la prestación de la
+            asistencia.
+          </p>
+          <h2>Límite máximo de responsabilidad</h2>
+          <p className='text-1 mb-4'>
+            El valor comercial de reparación del cristal o display del equipo de
+            telefonía móvil, el cual variará dependiendo del modelo del equipo,
+            constituye la máxima responsabilidad de ACINCO S.A.S., en caso de
+            fractura de pantalla, y, en consecuencia, no será responsable por
+            los valores que excedan a esta, los cuales deberán ser asumidos por
+            el usuario.
+          </p>
+          <p className='text-1 mb-2'>
+            El valor de la reparación variará dependiendo del modelo del equipo
+            de telefonía móvil.
           </p>
         </div>
         <div className='absolute btn--active__out'>
