@@ -87,9 +87,9 @@ const CheckImeiPage = () => {
             register={register("imei")}
             type={"number"}
             className={`text-input-empty text-1 mt-2`}
-            placeholder='Ingrese el IMEI de su celular'
             isPrechargue={false}
             isFilled={watch("imei") !== ""}
+            placeholder={"Ingrese el IMEI de su celular"}
           />
           <ErrorMessage
             message={errors && errors.imei && errors.imei.message}

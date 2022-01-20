@@ -1,23 +1,67 @@
 import React from "react";
+import Joi from "joi";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Switch } from "react-if";
 import { Case } from "react-if";
 import { When } from "react-if";
 import { Unless } from "react-if";
+import { useForm } from "react-hook-form";
+import { joiResolver } from "@hookform/resolvers/joi";
 
 import Container from "../../components/layout/Container";
 import Button from "../../components/buttons/button";
 import SmallBrand from "../../components/brand/small-brand";
 import Input from "../../components/inputs/input";
 import SkeletonCard from "../../components/skeleton/card";
+import ErrorMessage from "../../components/messages/error-messages";
 import { useImei } from "../../providers/imei/imeiProvider";
+import { useSecure } from "../../providers/secure/secureProvider";
 import { useCheckImei } from "../../services/imei/useCheckImei";
 import { CurrencyValue } from "../../utils/currencyValue";
+
+const schema = Joi.object({
+  imei: Joi.string()
+    .length(15)
+    .pattern(/^[0-9]+$/)
+    .required()
+    .messages({
+      "string.empty": "*Este campo es obligatorio.",
+      "string.length": "El imei tiene que tener 15 digitos.",
+      "string.pattern.base": "Solo se admiten numeros",
+    }),
+  terms: Joi.boolean().invalid(false).messages({
+    "any.invalid":
+      "*Tienes que aceptar los terminos y condiciones para continuar.",
+  }),
+});
 
 const CheckSecurePage = () => {
   const { state } = useLocation();
   const { imei, terms } = useImei();
+  const { setInsurranceValue } = useSecure();
+  const { push } = useHistory();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: joiResolver(schema),
+    defaultValues: {
+      imei,
+      terms,
+    },
+  });
   const { data, isLoading } = useCheckImei();
+
+  const submit = () => {
+    setInsurranceValue(data?.secureValue);
+    push({
+      pathname: "/details-purchase",
+      state,
+    });
+  };
   return (
     <Container>
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
@@ -38,13 +82,13 @@ const CheckSecurePage = () => {
           </div>
           <h2 className='mt-4'>IMEI</h2>
           <Input
+            register={register("imei")}
             type={"number"}
             className={`text-input-empty text-1 mt-2`}
-            placeholder='Ingrese el IMEI de su celular'
             isPrechargue={false}
             isFilled={true}
             readOnly
-            value={imei}
+            placeholder='Ingrese el IMEI de su celular'
           />
           <When condition={!isLoading}>
             <div className='rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-6'>
@@ -78,22 +122,41 @@ const CheckSecurePage = () => {
           </Unless>
           <div className='flex mt-7'>
             <div className='w-2/12 flex'>
-              <input
-                readOnly
-                id='checkTerms'
-                type={"checkbox"}
-                checked={terms}
-              />
+              <input {...register("terms")} id='checkTerms' type={"checkbox"} />
               <label htmlFor='checkTerms'></label>
             </div>
-            <p className='text-2'>
-              Acepto los <u className='font-bold'>terminos y condiciones</u> de
-              este seguro.
-            </p>
+            <Switch>
+              <Case condition={state.from === "/all-secure"}>
+                <p className='text-2'>
+                  Acepto los
+                  <Link to='/all-secure-terms-condition'>
+                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  </Link>
+                  de este seguro.
+                </p>
+              </Case>
+              <Case condition={state.from === "/screen-secure"}>
+                <p className='text-2'>
+                  Acepto los
+                  <Link to='/screen-secure-terms-condition'>
+                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  </Link>
+                  de este seguro.
+                </p>
+              </Case>
+            </Switch>
           </div>
+          <ErrorMessage
+            widthClass='mt-1'
+            message={errors && errors.terms && errors.terms.message}
+          />
         </div>
         <div className='absolute btn--active__out'>
-          <Button title={"Continuar"} isActive={false} />
+          <Button
+            onPress={handleSubmit(submit)}
+            title={"Continuar"}
+            isActive={true}
+          />
         </div>
       </div>
     </Container>
