@@ -3,10 +3,12 @@ import { useHistory } from "react-router-dom";
 import { BsChevronCompactLeft } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 
+import { useMobile } from "../../hooks/useMobile";
 const Header = () => {
   const { goBack } = useHistory();
+  const { isMobile } = useMobile();
   return (
-    <header className='fixed top-0 z-10'>
+    <header className={`fixed top-0 z-10 ${isMobile ? "" : "hidden"}`}>
       <div className='container--icon'>
         <BsChevronCompactLeft fontSize={"24px"} onClick={goBack} />
       </div>
