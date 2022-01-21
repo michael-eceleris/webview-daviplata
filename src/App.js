@@ -18,8 +18,11 @@ import CheckImeiPage from "./pages/check-imei/check-imei-page";
 import CheckSecurePage from "./pages/check-secure/check-secure-page";
 import DetailsPurchase from "./pages/details-purchase/details-purchase-page";
 import PurchaseComplete from "./pages/purchase-complete/purchase-complete-page";
+import PurchaseConfirmation from "./pages/purchase-confirmation/purchase-confirmation-page";
 import TermsConditionsScreenSecurePage from "./pages/terms-conditions-screen-secure/terms-conditions-screen-secure-page";
 import TermsConditionsAllSecurePage from "./pages/terms-conditions-all-secure/terms-conditions-all-secure-page";
+
+import HomeDaviplataAppPage from "./pages/home-daviplata-app/home-daviplata-app-page";
 
 function App() {
   const client = new QueryClient();
@@ -51,6 +54,11 @@ function App() {
               />
               <Route
                 exact
+                path={"/confirmation-purchase"}
+                component={PurchaseConfirmation}
+              />
+              <Route
+                exact
                 path={"/screen-secure-terms-condition"}
                 component={TermsConditionsScreenSecurePage}
               />
@@ -58,6 +66,11 @@ function App() {
                 exact
                 path={"/all-secure-terms-condition"}
                 component={TermsConditionsAllSecurePage}
+              />
+              <Route
+                exact
+                path={"/home-daviplata-app"}
+                component={HomeDaviplataAppPage}
               />
             </ImeiProvider>
           </SecureProvider>

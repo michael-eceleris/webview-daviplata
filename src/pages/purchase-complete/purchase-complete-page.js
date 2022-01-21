@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Switch } from "react-if";
 import { Case } from "react-if";
@@ -15,11 +16,12 @@ import { CurrencyValue } from "../../utils/currencyValue";
 
 const PurchaseComplete = () => {
   const { state } = useLocation();
+  const { push } = useHistory();
   const { insurranceValue } = useSecure();
   const { handleSubmit } = useForm({});
 
   const submit = (values) => {
-    console.log("values", values);
+    push({ pathname: "/confirmation-purchase", state });
   };
 
   return (
