@@ -23,6 +23,7 @@ import PurchaseConfirmation from "./pages/purchase-confirmation/purchase-confirm
 import TermsConditionsScreenSecurePage from "./pages/terms-conditions-screen-secure/terms-conditions-screen-secure-page";
 import TermsConditionsAllSecurePage from "./pages/terms-conditions-all-secure/terms-conditions-all-secure-page";
 import IncompatiblePage from "./pages/incompatible/incompatible-page";
+import WithoutKeyPage from "./pages/without-key/without-key-page";
 
 import HomeDaviplataAppPage from "./pages/home-daviplata-app/home-daviplata-app-page";
 
@@ -36,8 +37,9 @@ function App() {
           <SecureProvider>
             <ImeiProvider>
               <Route exact path={"/"}>
-                <PrivateRoute component={HomePage} />
+                <PrivateRoute component={WithoutKeyPage} />
               </Route>
+              <PrivateRoute exact path={"/:key"} component={HomePage} />
               <PrivateRoute
                 exact
                 path={"/all-secure"}
