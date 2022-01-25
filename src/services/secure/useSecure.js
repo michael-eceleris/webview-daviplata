@@ -1,6 +1,6 @@
 import { useMutation } from "react-query";
-import { createInsurrance } from "./secure-service";
+import { createPolicy } from "./secure-service";
 
-export const useCreateInsurrance = (config = {}) => {
-  return useMutation(createInsurrance, config);
+export const useCreatePolicy = (config = {}) => {
+  return useMutation((data) => createPolicy(data), config);
 };

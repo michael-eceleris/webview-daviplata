@@ -72,7 +72,6 @@ const CheckSecurePage = () => {
   const { mutateAsync: checkImei, isLoading } = useCheckImei();
 
   const submit = () => {
-    /* setInsurranceValue(data?.secureValue); */
     push({
       pathname: `/${key}/details-purchase`,
       state,
@@ -91,7 +90,9 @@ const CheckSecurePage = () => {
         if (res) {
           setDataSecure(res.data);
           setData(res.data);
-          setInsurranceValue(res.data.insuredValue);
+          setInsurranceValue(
+            res.data?.policy?.pricingOptions[0]?.paymentAmount
+          );
         }
       })
       .catch(() => {
@@ -197,7 +198,8 @@ const CheckSecurePage = () => {
           <Button
             onPress={handleSubmit(submit)}
             title={"Continuar"}
-            isActive={true}
+            isActive={!isLoading}
+            isDisabled={isLoading}
           />
         </div>
       </div>

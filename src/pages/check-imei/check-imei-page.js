@@ -17,7 +17,6 @@ import SmallBrand from "../../components/brand/small-brand";
 import ErrorMessage from "../../components/messages/error-messages";
 import Input from "../../components/inputs/input";
 import { useImei } from "../../providers/imei/imeiProvider";
-import { useCheckImei } from "../../services/imei/useCheckImei";
 
 const schema = Joi.object({
   imei: Joi.string()
@@ -39,7 +38,6 @@ const CheckImeiPage = () => {
   const { state } = useLocation();
   const { key } = useParams();
   const { imei, terms, setImei, setTerms } = useImei();
-  const { mutateAsync: checkImei, isLoading } = useCheckImei();
   const { push } = useHistory();
   const queryClient = useQueryClient();
   const {
@@ -53,26 +51,12 @@ const CheckImeiPage = () => {
   });
 
   const submit = (values) => {
-    checkImei({
-      id: state.id,
-      body: {
-        imei: values.imei,
-        sponsor: "DAVIPLATA",
-      },
-    })
-      .then((res) => {
-        if (res) {
-          setImei(values.imei);
-          setTerms(values.terms);
-          push({
-            pathname: `/${key}/check-secure`,
-            state,
-          });
-        }
-      })
-      .catch(() => {
-        push("/");
-      });
+    setImei(values.imei);
+    setTerms(values.terms);
+    push({
+      pathname: `/${key}/check-secure`,
+      state,
+    });
   };
 
   useEffect(() => {
@@ -148,7 +132,7 @@ const CheckImeiPage = () => {
           <Button
             onPress={handleSubmit(submit)}
             title={"Continuar"}
-            isActive={!isLoading}
+            isActive={true}
             isDisabled={false}
           />
         </div>

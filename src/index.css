@@ -232,12 +232,15 @@ h4 {
   bottom: 0px;
   left: calc(50% - 68px);
 }
+select,
 input[type="text"],
 input[type="number"] {
   width: 100%;
   padding-bottom: 7px;
 }
 
+select:focus,
+select:focus-visible,
 input[type="text"]:focus,
 input[type="text"]:focus-visible,
 input[type="number"]:focus,

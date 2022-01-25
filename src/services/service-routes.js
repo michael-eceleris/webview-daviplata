@@ -5,4 +5,7 @@ export const serviceRoutes = {
   imei: {
     getPolicy: (idPlan) => `/api/v1/imei?idPlan=${idPlan}`,
   },
+  policy: {
+    create: () => `/api/v1/policy`,
+  },
 };

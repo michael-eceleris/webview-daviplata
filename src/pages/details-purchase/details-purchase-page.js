@@ -2,6 +2,7 @@ import React from "react";
 import Joi from "joi";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Switch } from "react-if";
 import { Case } from "react-if";
 import { When } from "react-if";
@@ -13,11 +14,12 @@ import Container from "../../components/layout/Container";
 import Button from "../../components/buttons/button";
 import SmallBrand from "../../components/brand/small-brand";
 import Input from "../../components/inputs/input";
+import Select from "../../components/inputs/select";
 import SkeletonCard from "../../components/skeleton/card";
 import ErrorMessage from "../../components/messages/error-messages";
 import { useImei } from "../../providers/imei/imeiProvider";
 import { useSecure } from "../../providers/secure/secureProvider";
-import { useCreateInsurrance } from "../../services/secure/useSecure";
+import { useCreatePolicy } from "../../services/secure/useSecure";
 import { CurrencyValue } from "../../utils/currencyValue";
 
 const schema = Joi.object({
@@ -47,11 +49,13 @@ const schema = Joi.object({
     "any.required": "*Este campo es obligatorio.",
   }),
   line: Joi.string()
+    .length(10)
     .pattern(/^[0-9]+$/)
     .required()
     .messages({
       "string.empty": "*Este campo es obligatorio.",
       "string.pattern.base": "Solo se admiten numeros",
+      "string.length": "El imei tiene que tener 10 digitos.",
     }),
   nit: Joi.string()
     .pattern(/^[0-9]+$/)
@@ -60,6 +64,10 @@ const schema = Joi.object({
       "string.empty": "*Este campo es obligatorio.",
       "string.pattern.base": "Solo se admiten numeros",
     }),
+  genderId: Joi.string().valid("MASCULINO", "FEMENINO").required().messages({
+    "string.empty": "*Este campo es obligatorio.",
+    "any.only": "*Este campo es obligatorio.",
+  }),
 });
 
 const DetailsPurchase = () => {
@@ -67,9 +75,11 @@ const DetailsPurchase = () => {
   const { imei } = useImei();
   const { dataSecure, insurranceValue } = useSecure();
   const { push } = useHistory();
+  const { key } = useParams();
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: joiResolver(schema),
@@ -82,19 +92,40 @@ const DetailsPurchase = () => {
       nit: "",
     },
   });
-  const { mutateAsync: create, isLoading } = useCreateInsurrance();
+  const { mutateAsync: create, isLoading } = useCreatePolicy();
 
   const submit = (values) => {
-    console.log("values", values, dataSecure);
-    /* create(values).then((res) => {
-      if (res.status === 200) {
-        push({
-          pathname: "/complete-purchase",
-          state,
-        });
-      } else {
-      }
-    }); */
+    const data = {
+      client: {
+        firstName: values.name,
+        lastName: values.lastName,
+        email: values.email,
+        identification: {
+          type: "CEDULA_CIUDADANIA",
+          number: values.nit,
+        },
+        genderId: values.genderId,
+      },
+      planId: Number(dataSecure.policy.id),
+      device: {
+        imei,
+        line: values.line,
+      },
+      sponsorId: "DAVIPLATA",
+      priceOptionId: Number(dataSecure.policy.pricingOptions[0].id),
+    };
+    create(data)
+      .then((res) => {
+        if (res) {
+          push({
+            pathname: `/${key}/complete-purchase`,
+            state,
+          });
+        }
+      })
+      .catch(() => {
+        push("/");
+      });
   };
 
   return (
@@ -148,7 +179,7 @@ const DetailsPurchase = () => {
               register={register("name")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="nombre"
+              placeholder="Nombre"
               isPrechargue={false}
               isFilled={true}
             />
@@ -161,7 +192,7 @@ const DetailsPurchase = () => {
               register={register("lastName")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="apellido"
+              placeholder="Apellido"
               isPrechargue={false}
               isFilled={true}
             />
@@ -207,6 +238,21 @@ const DetailsPurchase = () => {
             <ErrorMessage
               widthClass="mt-1"
               message={errors && errors.nit && errors.nit.message}
+            />
+            <h2 className="mt-3.5 -mb-1">Sexo</h2>
+            <Select
+              register={register("genderId")}
+              withClass="w-full"
+              options={[
+                { value: "MASCULINO", name: "MASCULINO" },
+                { value: "FEMENINO", name: "FEMENINO" },
+              ]}
+              isFilled={watch("genderId") !== "Sexo"}
+              placeholder="Sexo"
+            />
+            <ErrorMessage
+              widthClass="mt-1"
+              message={errors && errors.genderId && errors.genderId.message}
             />
           </div>
           <div className="absolute btn--active__out">
