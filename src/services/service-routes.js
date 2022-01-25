@@ -3,6 +3,6 @@ export const serviceRoutes = {
     getToken: (keyAuth) => `/api/v1/auth/${keyAuth}`,
   },
   imei: {
-    getPolicy: () => `/api/v1/imei`,
+    getPolicy: (idPlan) => `/api/v1/imei?idPlan=${idPlan}`,
   },
 };

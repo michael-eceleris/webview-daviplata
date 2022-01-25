@@ -42,52 +42,52 @@ function App() {
               <PrivateRoute exact path={"/:key"} component={HomePage} />
               <PrivateRoute
                 exact
-                path={"/all-secure"}
+                path={"/:key/all-secure"}
                 component={AllSecurePage}
               />
               <PrivateRoute
                 exact
-                path={"/screen-secure"}
+                path={"/:key/screen-secure"}
                 component={ScreenSecurePage}
               />
               <PrivateRoute
                 exact
-                path={"/check-imei"}
+                path={"/:key/check-imei"}
                 component={CheckImeiPage}
               />
               <PrivateRoute
                 exact
-                path={"/check-secure"}
+                path={"/:key/check-secure"}
                 component={CheckSecurePage}
               />
               <PrivateRoute
                 exact
-                path={"/details-purchase"}
+                path={"/:key/details-purchase"}
                 component={DetailsPurchase}
               />
               <PrivateRoute
                 exact
-                path={"/complete-purchase"}
+                path={"/:key/complete-purchase"}
                 component={PurchaseComplete}
               />
               <PrivateRoute
                 exact
-                path={"/confirmation-purchase"}
+                path={"/:key/confirmation-purchase"}
                 component={PurchaseConfirmation}
               />
               <PrivateRoute
                 exact
-                path={"/screen-secure-terms-condition"}
+                path={"/:key/screen-secure-terms-condition"}
                 component={TermsConditionsScreenSecurePage}
               />
               <PrivateRoute
                 exact
-                path={"/all-secure-terms-condition"}
+                path={"/:key/all-secure-terms-condition"}
                 component={TermsConditionsAllSecurePage}
               />
               <PrivateRoute
                 exact
-                path={"/home-daviplata-app"}
+                path={"/:key/home-daviplata-app"}
                 component={HomeDaviplataAppPage}
               />
               <Route

@@ -37,7 +37,7 @@ const HomePage = () => {
           <BigBrand />
           <div className="grid grid-cols-4 col-span-full bg-white rounded-2xl px-2 gap-2 py-2 pb-3 mt-14">
             <Link
-              to="/all-secure"
+              to={{ pathname: `/${key}/all-secure` }}
               className="col-span-2 rounded-2xl card--product--shadow pb-3"
             >
               <div className="h-24">
@@ -56,7 +56,7 @@ const HomePage = () => {
               </div>
             </Link>
             <Link
-              to="/screen-secure"
+              to={{ pathname: `/${key}/screen-secure` }}
               className="col-span-2 rounded-2xl card--product--shadow pb-3"
             >
               <div className="h-24">

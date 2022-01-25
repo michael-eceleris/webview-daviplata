@@ -1,8 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import Joi from "joi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Switch } from "react-if";
 import { Case } from "react-if";
 import { When } from "react-if";
@@ -40,7 +43,20 @@ const schema = Joi.object({
 const CheckSecurePage = () => {
   const { state } = useLocation();
   const { imei, terms } = useImei();
-  const { setInsurranceValue } = useSecure();
+  const { key } = useParams();
+  const { setInsurranceValue, setDataSecure } = useSecure();
+  const [data, setData] = useState({
+    key: "",
+    policy: {
+      pricingOptions: [
+        {
+          paymentAmount: 0,
+        },
+      ],
+    },
+    brand: "",
+    insuredValue: 0,
+  });
   const { push } = useHistory();
   const {
     register,
@@ -53,19 +69,40 @@ const CheckSecurePage = () => {
       terms,
     },
   });
-  const { data, isLoading } = useCheckImei();
+  const { mutateAsync: checkImei, isLoading } = useCheckImei();
 
   const submit = () => {
-    setInsurranceValue(data?.secureValue);
+    /* setInsurranceValue(data?.secureValue); */
     push({
-      pathname: "/details-purchase",
+      pathname: `/${key}/details-purchase`,
       state,
     });
   };
+
+  useEffect(() => {
+    checkImei({
+      id: state.id,
+      body: {
+        imei,
+        sponsor: "DAVIPLATA",
+      },
+    })
+      .then((res) => {
+        if (res) {
+          setDataSecure(res.data);
+          setData(res.data);
+          setInsurranceValue(res.data.insuredValue);
+        }
+      })
+      .catch(() => {
+        push("/");
+      });
+    /* eslint-disable-next-line */
+  }, []);
   return (
     <Container>
-      <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
-        <div className='bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12'>
+      <div className="relative col-span-full gap-2 mb-auto mt-auto pb-5">
+        <div className="bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12">
           <SmallBrand />
           <Switch>
             <Case condition={state.from === "/all-secure"}>
@@ -75,12 +112,12 @@ const CheckSecurePage = () => {
               <h1>Seguro para la pantalla de su celular</h1>
             </Case>
           </Switch>
-          <div className='mt-4'>
-            <p className='text-1'>
+          <div className="mt-4">
+            <p className="text-1">
               Para consultar el IMEI de su celular marque en su teclado *#06#.
             </p>
           </div>
-          <h2 className='mt-4'>IMEI</h2>
+          <h2 className="mt-4">IMEI</h2>
           <Input
             register={register("imei")}
             type={"number"}
@@ -88,29 +125,34 @@ const CheckSecurePage = () => {
             isPrechargue={false}
             isFilled={true}
             readOnly
-            placeholder='Ingrese el IMEI de su celular'
+            placeholder="Ingrese el IMEI de su celular"
           />
           <When condition={!isLoading}>
-            <div className='rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-6'>
-              <div className='flex justify-between pb-3.5 card--product--division '>
-                <div className='text-left w-3/6'>
-                  <p className='text-2 font--gray-dark'>Marca de su celular</p>
+            <div className="rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-6">
+              <div className="flex justify-between pb-3.5 card--product--division ">
+                <div className="text-left w-3/6">
+                  <p className="text-2 font--gray-dark">Marca de su celular</p>
                   <h4>{data?.brand}</h4>
                 </div>
-                <div className='text-right w-3/6'>
-                  <p className='text-2 font--gray-dark'>Referencia</p>
-                  <h4>{data?.model}</h4>
+                <div className="text-right w-3/6">
+                  <p className="text-2 font--gray-dark">Referencia</p>
+                  <h4>{data?.key}</h4>
                 </div>
               </div>
-              <div className='flex justify-between pt-4'>
-                <div className='text-left w-3/6'>
-                  <p className='text-2 font--gray-dark'>Valor del seguro</p>
-                  <h4>${CurrencyValue(data?.secureValue)}</h4>
+              <div className="flex justify-between pt-4">
+                <div className="text-left w-3/6">
+                  <p className="text-2 font--gray-dark">Valor del seguro</p>
+                  <h4>
+                    $
+                    {CurrencyValue(
+                      data?.policy?.pricingOptions[0]?.paymentAmount
+                    )}
+                  </h4>
                 </div>
-                <div className='text-right w-3/6'>
-                  <p className='text-2 font--gray-dark'>Valor asegurado</p>
-                  <h4>${CurrencyValue(data?.insuranceValue)}</h4>
-                  <p className='text-2 font--gray-dark'>
+                <div className="text-right w-3/6">
+                  <p className="text-2 font--gray-dark">Valor asegurado</p>
+                  <h4>${CurrencyValue(data?.insuredValue)}</h4>
+                  <p className="text-2 font--gray-dark">
                     Sujeto a cambios de precio del celular en el mercado
                   </p>
                 </div>
@@ -120,26 +162,26 @@ const CheckSecurePage = () => {
           <Unless condition={!isLoading}>
             <SkeletonCard />
           </Unless>
-          <div className='flex mt-7'>
-            <div className='w-2/12 flex'>
-              <input {...register("terms")} id='checkTerms' type={"checkbox"} />
-              <label htmlFor='checkTerms'></label>
+          <div className="flex mt-7">
+            <div className="w-2/12 flex">
+              <input {...register("terms")} id="checkTerms" type={"checkbox"} />
+              <label htmlFor="checkTerms"></label>
             </div>
             <Switch>
               <Case condition={state.from === "/all-secure"}>
-                <p className='text-2'>
+                <p className="text-2">
                   Acepto los
-                  <Link to='/all-secure-terms-condition'>
-                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  <Link to="/all-secure-terms-condition">
+                    <u className="font-bold mx-1">terminos y condiciones</u>
                   </Link>
                   de este seguro.
                 </p>
               </Case>
               <Case condition={state.from === "/screen-secure"}>
-                <p className='text-2'>
+                <p className="text-2">
                   Acepto los
-                  <Link to='/screen-secure-terms-condition'>
-                    <u className='font-bold mx-1'>terminos y condiciones</u>
+                  <Link to="/screen-secure-terms-condition">
+                    <u className="font-bold mx-1">terminos y condiciones</u>
                   </Link>
                   de este seguro.
                 </p>
@@ -147,11 +189,11 @@ const CheckSecurePage = () => {
             </Switch>
           </div>
           <ErrorMessage
-            widthClass='mt-1'
+            widthClass="mt-1"
             message={errors && errors.terms && errors.terms.message}
           />
         </div>
-        <div className='absolute btn--active__out'>
+        <div className="absolute btn--active__out">
           <Button
             onPress={handleSubmit(submit)}
             title={"Continuar"}

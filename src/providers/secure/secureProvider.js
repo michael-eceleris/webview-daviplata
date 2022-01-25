@@ -6,6 +6,7 @@ const SecureContext = createContext();
 
 export const SecureProvider = ({ children }) => {
   const [insurranceValue, setInsurranceValue] = useState("");
+  const [dataSecure, setDataSecure] = useState(null);
   const [terms, setTerms] = useState(false);
 
   return (
@@ -15,6 +16,8 @@ export const SecureProvider = ({ children }) => {
         setInsurranceValue,
         terms,
         setTerms,
+        dataSecure,
+        setDataSecure,
       }}
       children={children}
     />
