@@ -8,7 +8,13 @@ const PrivateRoute = ({ component: Component, ...props }) => {
     <Route
       {...props}
       render={(props) =>
-        isMobile ? <Component {...props} /> : <Redirect to='/incompatible' />
+        isMobile ? (
+          <Component {...props} />
+        ) : window.location.pathname === "/health" ? (
+          <Redirect to='/health' />
+        ) : (
+          <Redirect to='/incompatible' />
+        )
       }
     />
   );

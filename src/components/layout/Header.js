@@ -8,7 +8,11 @@ const Header = () => {
   const { goBack } = useHistory();
   const { isMobile } = useMobile();
   return (
-    <header className={`fixed top-0 z-10 ${isMobile ? "" : "hidden"}`}>
+    <header
+      className={`fixed top-0 z-10 ${isMobile ? "" : "hidden"} ${
+        window.location.pathname === "/health" ? "" : "hidden"
+      }`}
+    >
       <div className='container--icon'>
         <BsChevronCompactLeft fontSize={"24px"} onClick={goBack} />
       </div>

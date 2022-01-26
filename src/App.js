@@ -24,6 +24,7 @@ import TermsConditionsScreenSecurePage from "./pages/terms-conditions-screen-sec
 import TermsConditionsAllSecurePage from "./pages/terms-conditions-all-secure/terms-conditions-all-secure-page";
 import IncompatiblePage from "./pages/incompatible/incompatible-page";
 import WithoutKeyPage from "./pages/without-key/without-key-page";
+import HealthPage from "./pages/health/health-page";
 
 import HomeDaviplataAppPage from "./pages/home-daviplata-app/home-daviplata-app-page";
 
@@ -95,6 +96,7 @@ function App() {
                 path={"/incompatible"}
                 component={IncompatiblePage}
               />
+              <Route exact path={"/health"} component={HealthPage} />
             </ImeiProvider>
           </SecureProvider>
         </Switch>
