@@ -68,7 +68,7 @@ function App() {
               />
               <PrivateRoute
                 exact
-                path={"/:key/complete-purchase"}
+                path={"/:key/complete-purchase/:idPolicy"}
                 component={PurchaseComplete}
               />
               <PrivateRoute

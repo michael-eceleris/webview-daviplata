@@ -7,5 +7,6 @@ export const serviceRoutes = {
   },
   policy: {
     create: () => `/api/v1/policy`,
+    getFile: () => `/api/v1/policy`,
   },
 };

@@ -118,7 +118,7 @@ const DetailsPurchase = () => {
       .then((res) => {
         if (res) {
           push({
-            pathname: `/${key}/complete-purchase`,
+            pathname: `/${key}/complete-purchase/${res.data.policy.id}`,
             state,
           });
         }
@@ -252,7 +252,6 @@ const DetailsPurchase = () => {
               }
               placeholder='Sexo'
             />
-            {console.log('watch("genderId")', watch("genderId"))}
             <ErrorMessage
               widthClass='mt-1'
               message={errors && errors.genderId && errors.genderId.message}
