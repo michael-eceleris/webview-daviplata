@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 z-10 ${isMobile ? "" : "hidden"} ${
-        window.location.pathname === "/health" ? "" : "hidden"
+        window.location.pathname === "/health" ? "hidden" : ""
       }`}
     >
       <div className='container--icon'>

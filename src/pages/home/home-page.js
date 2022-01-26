@@ -8,7 +8,7 @@ import { Unless } from "react-if";
 import Container from "../../components/layout/Container";
 import PhoneFracture from "../../assets/img/screen-fracture.jpg";
 import PhoneSafe from "../../assets/img/all-safe.jpg";
-import LogoATS from "../../assets/img/ats-logo.jpg";
+import LogoATS from "../../assets/img/ats-logo.png";
 import BigBrand from "../../components/brand/big-brand";
 import SkeletonCard from "../../components/skeleton/card";
 
