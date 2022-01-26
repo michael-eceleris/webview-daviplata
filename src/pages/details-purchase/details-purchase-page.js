@@ -130,15 +130,15 @@ const DetailsPurchase = () => {
 
   return (
     <Container>
-      <div className="relative col-span-full gap-2 mb-auto mt-auto pb-5">
+      <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
         <When condition={!isLoading}>
-          <div className="bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12">
+          <div className='bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12'>
             <SmallBrand />
             <h1>Detalles de compra</h1>
-            <div className="rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-4">
-              <div className="flex justify-between pb-3.5 card--product--division ">
-                <div className="text-left w-full">
-                  <p className="text-2 font--gray-dark">
+            <div className='rounded-2xl w-full py-3.5 card--product--shadow px-4 mt-5 mb-4'>
+              <div className='flex justify-between pb-3.5 card--product--division '>
+                <div className='text-left w-full'>
+                  <p className='text-2 font--gray-dark'>
                     Seguro para su celular
                   </p>
                   <Switch>
@@ -151,111 +151,114 @@ const DetailsPurchase = () => {
                   </Switch>
                 </div>
               </div>
-              <div className="flex justify-between pb-3.5 card--product--division ">
-                <div className="text-left w-3/6">
+              <div className='flex justify-between pb-3.5 card--product--division '>
+                <div className='text-left w-3/6'>
                   <h4>Valor a pagar</h4>
-                  <p className="text-2 font--gray-dark">Medio de pago</p>
+                  <p className='text-2 font--gray-dark'>Medio de pago</p>
                 </div>
-                <div className="text-right w-3/6">
+                <div className='text-right w-3/6'>
                   <h4>${CurrencyValue(insurranceValue)}</h4>
-                  <p className="text-2 font--gray-dark">Daviplata</p>
+                  <p className='text-2 font--gray-dark'>Daviplata</p>
                 </div>
               </div>
-              <div className="flex justify-between pt-4">
-                <div className="text-left w-3/6">
+              <div className='flex justify-between pt-4'>
+                <div className='text-left w-3/6'>
                   <h4>Vigencia del seguro</h4>
                 </div>
-                <div className="text-right w-3/6">
+                <div className='text-right w-3/6'>
                   <h4>6 meses</h4>
                 </div>
               </div>
             </div>
-            <p className="text-2 font--black">
+            <p className='text-2 font--black'>
               Enviaremos el certificado a su correo. Por favor verifique la
               siguiente información.
             </p>
-            <h2 className="mt-3.5 -mb-1">Nombre</h2>
+            <h2 className='mt-3.5 -mb-1'>Nombre</h2>
             <Input
               register={register("name")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="Nombre"
+              placeholder='Nombre'
               isPrechargue={false}
               isFilled={true}
             />
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.name && errors.name.message}
             />
-            <h2 className="mt-3.5 -mb-1">Apellido</h2>
+            <h2 className='mt-3.5 -mb-1'>Apellido</h2>
             <Input
               register={register("lastName")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="Apellido"
+              placeholder='Apellido'
               isPrechargue={false}
               isFilled={true}
             />
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.lastName && errors.lastName.message}
             />
-            <h2 className="mt-3.5 -mb-1">Correo</h2>
+            <h2 className='mt-3.5 -mb-1'>Correo</h2>
             <Input
               register={register("email")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="correo@mail.com"
+              placeholder='correo@mail.com'
               isPrechargue={false}
               isFilled={true}
             />
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.email && errors.email.message}
             />
-            <h2 className="mt-3.5 -mb-1">Celular</h2>
+            <h2 className='mt-3.5 -mb-1'>Celular</h2>
             <Input
               register={register("line")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="Celular"
+              placeholder='Celular'
               isPrechargue={false}
               isFilled={true}
             />
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.line && errors.line.message}
             />
-            <h2 className="mt-3.5 -mb-1">Identificacion</h2>
+            <h2 className='mt-3.5 -mb-1'>Identificacion</h2>
             <Input
               register={register("nit")}
               type={"text"}
               withClass={`text-input-empty text-1 mt-1`}
-              placeholder="Identificacion"
+              placeholder='Identificacion'
               isPrechargue={false}
               isFilled={true}
             />
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.nit && errors.nit.message}
             />
-            <h2 className="mt-3.5 -mb-1">Sexo</h2>
+            <h2 className='mt-3.5 -mb-1'>Sexo</h2>
             <Select
               register={register("genderId")}
-              withClass="w-full"
+              withClass='w-full'
               options={[
                 { value: "MASCULINO", name: "MASCULINO" },
                 { value: "FEMENINO", name: "FEMENINO" },
               ]}
-              isFilled={watch("genderId") !== "Sexo"}
-              placeholder="Sexo"
+              isFilled={
+                watch("genderId") !== "Sexo" && watch("genderId") !== undefined
+              }
+              placeholder='Sexo'
             />
+            {console.log('watch("genderId")', watch("genderId"))}
             <ErrorMessage
-              widthClass="mt-1"
+              widthClass='mt-1'
               message={errors && errors.genderId && errors.genderId.message}
             />
           </div>
-          <div className="absolute btn--active__out">
+          <div className='absolute btn--active__out'>
             <Button
               onPress={handleSubmit(submit)}
               title={"Comprar"}
@@ -264,7 +267,7 @@ const DetailsPurchase = () => {
           </div>
         </When>
         <Unless condition={!isLoading}>
-          <SkeletonCard withClass="h-96" />
+          <SkeletonCard withClass='h-96' />
         </Unless>
       </div>
     </Container>

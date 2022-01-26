@@ -19,13 +19,16 @@ const Select = ({
         } text-input-empty text-1 `}
         placeholder={placeholder}
       >
-        <option hidden selected>
+        <option hidden selected defaultValue={""}>
           {placeholder}
         </option>
-        {options.map((d) => (
-          <option className="font--black" value={d.value}>
-            {" "}
-            {d.name}{" "}
+        {options.map((d, index) => (
+          <option
+            key={`select_${index}`}
+            className='font--black'
+            value={d.value}
+          >
+            {d.name}
           </option>
         ))}
       </select>
