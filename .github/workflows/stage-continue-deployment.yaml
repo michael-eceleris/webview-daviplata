@@ -31,7 +31,7 @@ jobs:
           mv .env.stage .env
           rm -rf .env.*
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Remote - Clean Files
         uses: appleboy/ssh-action@master
