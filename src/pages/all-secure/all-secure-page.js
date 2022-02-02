@@ -16,9 +16,9 @@ const AllSecurePage = () => {
           <SmallBrand />
           <h1>Seguro contra daño y robo de su celular</h1>
           <div className='mt-7'>
-            <h2>Descripcion</h2>
-            <ul className='list-daviplata ml-5'>
-              <li className='li-daviplata'>
+            <h2>Descripción</h2>
+            <ul className='list-daviplata'>
+              <li className='li-daviplata mt-3'>
                 <p className='text-1'>
                   Seguro para cualquier tipo de celular que protege el asegurado
                   en caso de:
@@ -32,12 +32,12 @@ const AllSecurePage = () => {
               </li>
               <li className='li-daviplata'>
                 <p className='text-1'>
-                  Una reclamacion durante la vigencia del seguro
+                  Una reclamación durante la vigencia del seguro.
                 </p>
               </li>
               <li className='li-daviplata'>
                 <p className='text-1'>
-                  35% de deducible (valor que deber ser pagado por el usuario)
+                  35% de deducible (valor que deber ser pagado por el usuario).
                 </p>
               </li>
               <li className='li-daviplata'>
@@ -49,8 +49,8 @@ const AllSecurePage = () => {
             <h3>Soporte</h3>
             <img src={LogoATS} className='w-12' alt='logo-ats' />
             <p className='text-2'>
-              Si quiere soporte o ampliar informacion contacteno a
-              soporte@aliado.co o a la linea celular o whatsapp 3001234566.
+              Si requiere soporte o ampliar información contáctenos a
+              soporte@aliado.co o a la línea celular o whatsapp 3001234566.
             </p>
           </div>
         </div>

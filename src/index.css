@@ -213,20 +213,28 @@ h4 {
   border-bottom-left-radius: 90px 15px;
 }
 
+.small--brand--container {
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 30px 20px;
+  border-bottom-right-radius: 40px 10px;
+  border-bottom-left-radius: 20px 10px;
+}
+
 .list-daviplata {
   list-style-type: none;
+  margin-left: 1.05rem;
 }
 
 .list-daviplata .li-daviplata::before {
-  content: "\203A";
+  content: "";
   position: absolute;
   margin-left: -17px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-top: 5px;
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+  background-image: url("./assets/icons/bullet.svg");
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 .list-hypen {
   list-style-type: none;

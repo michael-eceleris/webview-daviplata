@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Grupo_17684" data-name="Grupo 17684" transform="translate(-58 -306)">
+    <circle id="Elipse_1180" data-name="Elipse 1180" cx="6" cy="6" r="6" transform="translate(58 306)" fill="#dd141d" />
+    <g id="Icono_24Adelante" transform="translate(63.503 311.503) rotate(180)">
+      <g id="Capa_2" data-name="Capa 2" transform="translate(-5 -5)">
+        <g id="Borde" transform="translate(0)">
+          <path id="Trazado_8749" data-name="Trazado 8749"
+            d="M10.012,9.29a.211.211,0,0,1-.067,0C8.925,8.9,5.14,7.12,5.14,5.593,5.118,3.867,9.894,1.93,9.945,1.9a.185.185,0,0,1,.133.344c-1.6.625-4.576,2.251-4.554,3.327S8.53,8.321,10.079,8.916a.188.188,0,0,1-.067.37Z"
+            transform="translate(-3.106 -1.19)" fill="#fff" stroke="#fff" stroke-width="0.2" />
+          <rect id="Rectángulo_5247" data-name="Rectángulo 5247" width="10" height="10"
+            transform="translate(-0.497 -0.497)" fill="none" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
