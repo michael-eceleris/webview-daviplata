@@ -16,24 +16,24 @@ const AllSecurePage = () => {
           <SmallBrand />
           <h1>Seguro para la pantalla de su celular</h1>
           <div className='mt-7'>
-            <h2>Descripcion</h2>
-            <ul className='list-daviplata ml-5 mt-3'>
+            <h2>Descripción</h2>
+            <ul className='list-daviplata mt-3'>
               <li className='li-daviplata'>
                 <p className='text-1'>
                   El seguro cubre daños accidentales que afecten la pantalla del
                   celular asegurado, en donde es necesario reparar o reemplazar
                   la pantalla y que no correspondan a situaciones excluidas en
-                  los terminos y condiciones.
+                  los términos y condiciones.
                 </p>
               </li>
               <li className='li-daviplata'>
                 <p className='text-1'>
-                  Una reclamacion durante la vigencia del seguro.
+                  Una reclamación durante la vigencia del seguro.
                 </p>
               </li>
               <li className='li-daviplata'>
                 <p className='text-1'>
-                  30% de deducible (valor que deber ser pagado por el usuario)
+                  30% de deducible (valor que deber ser pagado por el usuario).
                 </p>
               </li>
               <li className='li-daviplata'>
@@ -45,8 +45,8 @@ const AllSecurePage = () => {
             <h3>Soporte</h3>
             <img src={LogoATS} className='w-12' alt='logo-ats' />
             <p className='text-2'>
-              Si quiere soporte o ampliar informacion contacteno a
-              soporte@aliado.co o a la linea celular o whatsapp 3001234566.
+              Si requiere soporte o ampliar información contáctenos a
+              soporte@aliado.co o a la línea celular o whatsapp 3001234566.
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ import Button from "../../components/buttons/button";
 import SmallBrand from "../../components/brand/small-brand";
 import ShareButton from "../../components/buttons/share-button";
 import DownloadButton from "../../components/buttons/download-button";
-import DaviplataNotifications from "../../assets/img/daviplata_notifications.jpg";
+import DaviplataNotifications from "../../assets/icons/bar-notifications.svg";
 import { useSecure } from "../../providers/secure/secureProvider";
 import { CurrencyValue } from "../../utils/currencyValue";
 import { useGetFilePolicy } from "../../services/secure/useSecure";
@@ -52,10 +52,10 @@ const PurchaseComplete = () => {
           <h2 className='font--gray-dark text-center mb-4'>
             ¡Gracias por su compra!
           </h2>
-          <p className='text-5 text-center'>
+          <p className='font--gray-dark text-5 text-center font--line--height--18'>
             Hemos enviado el certificado del seguro a su correo.
           </p>
-          <p className='text-5 text-center mb-5'>
+          <p className='font--gray-dark text-5 text-center mb-5 font--line--height--18'>
             Recuerde que puede consultarlo en la campana de notificaciones de su
             App DaviPlata
           </p>

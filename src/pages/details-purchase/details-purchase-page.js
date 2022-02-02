@@ -177,7 +177,9 @@ const DetailsPurchase = () => {
                     </div>
                     <div className='text-right w-3/6'>
                       <h4>${CurrencyValue(insurranceValue)}</h4>
-                      <p className='text-2 font--gray-dark'>Daviplata</p>
+                      <p className='text-2 font--gray-dark mr-0.25'>
+                        Daviplata
+                      </p>
                     </div>
                   </div>
                   <div className='flex justify-between pt-4'>
@@ -192,7 +194,7 @@ const DetailsPurchase = () => {
 
                 <p className='text-2 font--black'>
                   Enviaremos el certificado a su correo. Por favor verifique la
-                  siguiente información.
+                  información
                 </p>
                 <h2 className='mt-3.5 -mb-1'>Nombre</h2>
                 <Input
@@ -246,12 +248,12 @@ const DetailsPurchase = () => {
                   widthClass='mt-1'
                   message={errors && errors.line && errors.line.message}
                 />
-                <h2 className='mt-3.5 -mb-1'>Identificacion</h2>
+                <h2 className='mt-3.5 -mb-1'>Identificación</h2>
                 <Input
                   register={register("nit")}
                   type={"text"}
                   withClass={`text-input-empty text-1 mt-1`}
-                  placeholder='Identificacion'
+                  placeholder='Identificación'
                   isPrechargue={false}
                   isFilled={true}
                 />

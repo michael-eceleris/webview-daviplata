@@ -25,6 +25,7 @@ import { useImei } from "../../providers/imei/imeiProvider";
 import { useSecure } from "../../providers/secure/secureProvider";
 import { useCheckImei } from "../../services/imei/useCheckImei";
 import { CurrencyValue } from "../../utils/currencyValue";
+import { FirstLetterCapitalize } from "../../utils/wordsUtils";
 
 const schema = Joi.object({
   imei: Joi.string()
@@ -159,7 +160,7 @@ const CheckSecurePage = () => {
                       </div>
                       <div className='text-right w-3/6'>
                         <p className='text-2 font--gray-dark'>Referencia</p>
-                        <h4>{data?.key}</h4>
+                        <h4>{FirstLetterCapitalize(data?.key)}</h4>
                       </div>
                     </div>
                     <div className='flex justify-between pt-4'>
@@ -202,9 +203,9 @@ const CheckSecurePage = () => {
                     <Case condition={state.from === "/all-secure"}>
                       <p className='text-2'>
                         Acepto los
-                        <Link to='/all-secure-terms-condition'>
+                        <Link to={`/${key}/all-secure-terms-condition`}>
                           <u className='font-bold mx-1'>
-                            terminos y condiciones
+                            términos y condiciones
                           </u>
                         </Link>
                         de este seguro.
@@ -213,9 +214,9 @@ const CheckSecurePage = () => {
                     <Case condition={state.from === "/screen-secure"}>
                       <p className='text-2'>
                         Acepto los
-                        <Link to='/screen-secure-terms-condition'>
+                        <Link to={`/${key}/screen-secure-terms-condition`}>
                           <u className='font-bold mx-1'>
-                            terminos y condiciones
+                            términos y condiciones
                           </u>
                         </Link>
                         de este seguro.
