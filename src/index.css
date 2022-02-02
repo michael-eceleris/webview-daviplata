@@ -157,6 +157,11 @@ h4 {
   line-height: 24px;
 }
 
+.font--regular {
+  font-weight: var(--font-regular);
+  font-family: var(--font-roboto);
+}
+
 .container-daviplata {
   padding-top: 72px;
   padding-bottom: 16px;
@@ -199,6 +204,13 @@ h4 {
 
 .card--product--shadow {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.big--brand--container {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 150px 17px;
+  border-bottom-left-radius: 90px 15px;
 }
 
 .list-daviplata {

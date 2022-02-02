@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { BsChevronCompactLeft } from "react-icons/bs";
-import { FaTimes } from "react-icons/fa";
+
+import Back from "../../assets/icons/back.svg";
+import Times from "../../assets/icons/times.svg";
 
 import { useMobile } from "../../hooks/useMobile";
 const Header = () => {
@@ -14,11 +15,11 @@ const Header = () => {
       }`}
     >
       <div className='container--icon'>
-        <BsChevronCompactLeft fontSize={"24px"} onClick={goBack} />
+        <img src={Back} onClick={goBack} alt='icon_back_app' />
       </div>
-      <h2 className='font--white font--18'>Tienda Virtual</h2>
+      <h2 className='font--white font--regular font--18'>Tienda Virtual</h2>
       <div className='container--icon'>
-        <FaTimes fontSize={"24px"} />
+        <img src={Times} alt='icon_exit_app' />
       </div>
     </header>
   );

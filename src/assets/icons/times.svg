@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.05" height="24.292" viewBox="0 0 24.05 24.292">
+  <g id="Icono_24X" transform="translate(12.025 12.398)">
+    <g id="Icono_24X-2" data-name="Icono_24X" transform="translate(-12.025 -12.146)">
+      <g id="Borde">
+        <path id="Trazado_10460" data-name="Trazado 10460"
+          d="M12.76,12.11l8.75-8.75a.5.5,0,0,0,0-.71.51.51,0,0,0-.71,0l-8.75,8.76L3.3,2.65a.51.51,0,0,0-.71,0,.5.5,0,0,0,0,.71l8.75,8.75L2.59,20.87a.5.5,0,0,0,.35.85.51.51,0,0,0,.36-.15l8.75-8.75,8.75,8.75a.51.51,0,0,0,.36.15.5.5,0,0,0,.35-.85Z"
+          fill="#fff" />
+        <rect id="Rectángulo_5526" data-name="Rectángulo 5526" width="24" height="24" transform="translate(0.05 0.04)"
+          fill="none" />
+        <rect id="Rectángulo_5527" data-name="Rectángulo 5527" width="24" height="24" transform="translate(0 -0.252)"
+          fill="none" />
+      </g>
+    </g>
+  </g>
+</svg>

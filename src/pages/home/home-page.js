@@ -35,7 +35,7 @@ const HomePage = () => {
       <When condition={!isLoading}>
         <div className='col-span-full bg-white rounded-2xl mt-auto mb-auto'>
           <BigBrand />
-          <div className='grid grid-cols-4 col-span-full bg-white rounded-2xl px-2 gap-2 py-2 pb-3 mt-14'>
+          <div className='grid grid-cols-4 col-span-full bg-white rounded-2xl px-2 gap-2 py-2 pb-3 mt-4'>
             <Link
               to={{ pathname: `/${key}/all-secure` }}
               className='col-span-2 rounded-2xl card--product--shadow pb-3'
@@ -49,7 +49,7 @@ const HomePage = () => {
               </div>
               <div className='h-16 mt-3'>
                 <h3 className='text-center'>
-                  Seguro contra daño y robo de celular
+                  Seguro contra daño y robo de su celular
                 </h3>
                 <p className='text-red-500 text-2 text-center'>Desde</p>
                 <p className='text-2 text-center'>$50.000</p>
