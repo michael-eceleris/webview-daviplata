@@ -1,0 +1,64 @@
+name: Deploy de Produccion protegeme-web
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Actualiza Fuente Remota
+        uses: actions/checkout@v2
+
+      - name: Update Remote Project Repo
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_PASS }}
+          script: |
+            cd ${{secrets.PROD_DIR}}
+            echo "Ejecutando 'git pull'"
+            /usr/bin/git pull
+      - name: Ejecutando 'npm install'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_PASS }}
+          script: |
+            cd ${{secrets.PROD_DIR}}
+            echo "Ejecutando 'npm install'"
+            /usr/bin/npm install
+                        
+      - name: Eliminando Archivos .env.*
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_PASS }}
+          script: |
+            cd ${{secrets.PROD_DIR}}
+            rm -rf .env.*
+            
+      - name: Ejecutando 'npm run build'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_PASS }}
+          script: |
+            cd ${{secrets.PROD_DIR}}
+            echo "Ejecutando 'npm run build'"
+            /usr/bin/npm run build
+            
+      - name: Reiniciando Nginx
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_PASS }}
+          script: |
+            cd ${{secrets.PROD_DIR}}
+            echo "Reiniciando Nginx"
+            /usr/sbin/service nginx reload
