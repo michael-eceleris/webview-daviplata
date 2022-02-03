@@ -169,6 +169,9 @@ h4 {
 .container-daviplata {
   padding-top: 72px;
   padding-bottom: 16px;
+  background-image: url("./assets/img/Fondo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container--brand-icon {

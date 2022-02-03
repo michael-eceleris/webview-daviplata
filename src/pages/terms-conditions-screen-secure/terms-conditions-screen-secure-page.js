@@ -16,7 +16,7 @@ const TermsConditionsScreenSecurePage = () => {
           <h2>Términos y Condiciones</h2>
           <p className='text-1 mb-4'>
             Esta dirigido a todos los usuarios que tenga una cuenta en DaviPlata
-            y que requierem asegurar su equipo celular usado contra Fractura de
+            y que requieran asegurar su equipo celular usado contra Fractura de
             Pantalla.
           </p>
           <h2>Vigencia</h2>
@@ -87,7 +87,7 @@ const TermsConditionsScreenSecurePage = () => {
             adquisición de la póliza.
           </p>
           <p className='text-1 mb-4'>
-            La renovación es automática e implica el pago de prima
+            La renovación es automática e implica el pago de prima.
           </p>
           <p className='text-1 mb-4'>
             Estarán excluidos todos aquellos eventos originados, basados o
@@ -104,7 +104,7 @@ const TermsConditionsScreenSecurePage = () => {
             Dolo, culpa grave o mala fe del usuario o de sus representantes.
           </p>
           <p className='text-1 mb-4'>
-            Motín, conmoción civil o popular,vandalismo y actos mal
+            Motín, conmoción civil o popular, vandalismo y actos mal
             intencionados de terceros.
           </p>
           <p className='text-1 mb-4'>
@@ -124,8 +124,8 @@ const TermsConditionsScreenSecurePage = () => {
             clonación y similares.
           </p>
           <p className='text-1 mb-4'>
-            Pérdias o daños de elementos considerados accesorios del bien
-            asegurado como baterías, audifonos, manos libres, forros y
+            Pérdidas o daños de elementos considerados accesorios del bien
+            asegurado como baterías, audífonos, manos libres, forros y
             cargadores, entre otros.
           </p>
           <p className='text-1 mb-4'>
