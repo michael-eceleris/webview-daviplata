@@ -73,13 +73,13 @@ const TermsConditionsAllSecurePage = () => {
             contará con máximo nueve (9) días hábiles para entregar el equipo
             reparado, contados desde la entrega del equipo al operador logístico
             si no tiene ningún daño adicional, en el evento en que lo tenga, los
-            nueves (9) días empezarán a contar desde la autorización otorgada
-            por el usuario para reparar los daños adicionales del equipo.
+            nueve (9) días empezarán a contar desde la autorización otorgada por
+            el usuario para reparar los daños adicionales del equipo.
           </p>
           <h2>Condiciones Generales</h2>
           <p className='text-1 mb-4'>
             La asistencia de protección de pantalla es asistida por ACINCO
-            S.A.S., la cual cubre una (1) reclamacion (solicitud) por la rotura
+            S.A.S., la cual cubre una (1) reclamación (solicitud) por la rotura
             accidental de pantalla por una vigencia de doce (12) meses a partir
             de la fecha de adquisición de la póliza.
           </p>
@@ -104,9 +104,9 @@ const TermsConditionsAllSecurePage = () => {
                 Daños que no sean consecuencia de un evento accidental, súbito e
                 imprevisto, esto es, daños o pérdidas causados por el uso u
                 operación ordinaria del celular, tales como desgaste,
-                deformación, corrosión, herrumbe y deterioro por falta de uso o
+                deformación, corrosión, herrumbre y deterioro por falta de uso o
                 proveniente de las condiciones atmosféricas normales.
-                Independientement de las causas de la pérdida.
+                Independientemente de las causas de la pérdida.
               </p>
             </li>
             <li className='li-daviplata'>
