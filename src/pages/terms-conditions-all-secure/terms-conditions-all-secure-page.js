@@ -157,9 +157,14 @@ const TermsConditionsAllSecurePage = () => {
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
+                Pérdida por desaparición misteriosa.
+              </p>
+            </li>
+            <li className='li-daviplata'>
+              <p className='text-1 mb-2'>
                 Pérdidas como consecuencia de que el usuario, o cualquier
                 persona a quien éste le haya confiado el bien asistado, se haya
-                despendido intencionalmente de la misma.
+                desprendido intencionalmente de la misma.
               </p>
             </li>
             <li className='li-daviplata'>
@@ -178,9 +183,9 @@ const TermsConditionsAllSecurePage = () => {
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Fallas lógicas causadas al equipo terminal por virtus o
-                descargas de internet o como consecuencia de la culpa grave del
-                usuario o de un tercer autorizado por este.
+                Fallas lógicas causadas al equipo terminal por virus o descargas
+                de internet o como consecuencia de la culpa grave del usuario o
+                de un tercero autorizado por este.
               </p>
             </li>
             <li className='li-daviplata'>
@@ -190,13 +195,13 @@ const TermsConditionsAllSecurePage = () => {
               </p>
             </li>
             <li className='li-daviplata'>
-              <p className='text-1 mb-2'>Daños por variacion de voltaje.</p>
+              <p className='text-1 mb-2'>Daños por variación de voltaje.</p>
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Cuando verificados o analizados los documentos e informacion
+                Cuando verificados o analizados los documentos e información
                 aportada por el usuario en la solicitud de asistencia, se
-                evidencien inconsistencias en la información suminstrada.
+                evidencien inconsistencias en la información suministrada.
               </p>
             </li>
             <li className='li-daviplata'>
@@ -212,10 +217,9 @@ const TermsConditionsAllSecurePage = () => {
           </ul>
           <h2>Atención al Cliente</h2>
           <p className='text-1 mb-4'>
-            La reclamación del servicio se puede realizar a través de la línea
-            01 8000 513 323 o en Bogotá al 4898599 de lunes a viernes de 8 am a
-            6 pm y sábado de 8 am a 2 pm, por WhatsApp al +57 1 5142355 o por
-            medio del chat habilitado en la siguiente página
+            La solicitud del servicio se puede realizar a través de la línea 01
+            8000 513 323 o en Bogotá al 4898599 de lunes a sábado de 8 am a 6
+            pm, pormedio del chat habilitado en la siguiente página
             www.aseguratucelular.com.
           </p>
           <h2>Documentación</h2>
@@ -224,7 +228,6 @@ const TermsConditionsAllSecurePage = () => {
             siguientes documentos a la aseguradora por medio de la página web
             www.aseguratucelular.com.
           </p>
-          <h2>Fractura de Pantalla</h2>
           <ul className='list-daviplata ml-5 mt-3 mb-4'>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
@@ -252,20 +255,19 @@ const TermsConditionsAllSecurePage = () => {
             </li>
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
-                Si la unidad enciende imagen del imei desde el equipo (marcar
+                Si la unidad enciende imagen del Imei desde el equipo (marcar
                 *#06#).
               </p>
             </li>
           </ul>
           <p className='text-1 mb-4'>
-            En un máximo de (5) días hábiles de radicar la documentación, se
-            analizarán los documentos y se indicará el estado de esta, si la
-            reclamación es preaprobada, se enviará una solicitud de pago del
-            deducible y una orden de cambio de equipo (hurto simple, hurto
-            calificado y daño total accidental) o una orden de reparación
-            (fractura de pantalla) para que el equipo sea llevado a un punto
-            logístico autorizado a nivel nacional para luego ser trasladado al
-            taller para su reparación o recogido en la dirección indicada por el
+            En un máximo de cinco (5) días hábiles de radicar la documentación,
+            ACINCO S.A.S. analizará los documentos y dará una respuesta, Si es
+            pre-aprobado, se enviará al usuario una solicitud de pago para que
+            realice el copago y una orden de reparación para que el equipo sea
+            llevado a un punto logístico a nivel nacional autorizado por la
+            ACINCO, para que el equipo sea trasladado al taller para su
+            reparación o en su defecto en el lugar de domicilio indicado por el
             cliente.
           </p>
           <p className='text-1 mb-4'>
@@ -284,8 +286,8 @@ const TermsConditionsAllSecurePage = () => {
             el usuario.
           </p>
           <p className='text-1 mb-2'>
-            El valor de la reparación variará dependiendo del modelo del equipo
-            de telefonía móvil.
+            El valor de reparación variará dependiendo del modelo del equipo de
+            telefonía móvil.
           </p>
         </div>
         <div className='absolute btn--active__out'>
