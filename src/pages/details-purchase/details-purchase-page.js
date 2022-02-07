@@ -177,9 +177,7 @@ const DetailsPurchase = () => {
                     </div>
                     <div className='text-right w-3/6'>
                       <h4>${CurrencyValue(insurranceValue)}</h4>
-                      <p className='text-2 font--gray-dark mr-0.25'>
-                        Daviplata
-                      </p>
+                      <p className='text-2 font--gray-dark mr-3.5'>DaviPlata</p>
                     </div>
                   </div>
                   <div className='flex justify-between pt-4'>

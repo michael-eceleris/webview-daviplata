@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -28,6 +29,14 @@ const HomePage = () => {
     onError: (error) => {
       push("/");
     },
+  });
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await sessionStorage.getItem("user");
+      console.log(`${data}, data`);
+    };
+    getUser();
   });
 
   return (
@@ -74,8 +83,8 @@ const HomePage = () => {
                 <p className='text-2 text-center'>$8.000</p>
               </div>
             </Link>
-            <div className='col-span-full flex justify-end px-1'>
-              <img src={LogoATS} className='w-8' alt='logo-ats' />
+            <div className='col-span-full flex justify-end px-1 pt-1'>
+              <img src={LogoATS} className='h-7' alt='logo-ats' />
             </div>
           </div>
         </div>

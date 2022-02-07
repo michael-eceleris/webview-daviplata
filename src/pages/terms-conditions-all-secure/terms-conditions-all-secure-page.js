@@ -51,12 +51,12 @@ const TermsConditionsAllSecurePage = () => {
             ACINCO S.A.S. prestará la asistencia a través del operador de
             servicio técnico autorizado por este y que será informado al usuario
             en la orden de reparación. El usuario deberá dirigirse al punto del
-            operador logístico indicado por ACINCO S.A.S para coordinar la
+            operador logístico indicado por ACINCO S.A.S. para coordinar la
             reparación y entrega del equipo.
           </p>
           <p className='text-1 mb-4'>
-            Una vez el operador efectué la revisión técnia y realice el
-            diagnóstico del equipo, le cominucará al usuario los tiempos de
+            Una vez el operador efectué la revisión técnica y realice el
+            diagnóstico del equipo, le comunicará al usuario los tiempos de
             entrega del equipo, así como el hallazgo de daños adicionales que
             puedan encontrarse en el mismo. En caso de que el equipo móvil
             cuente con daños adicionales, distintos a losdispuestos en la
