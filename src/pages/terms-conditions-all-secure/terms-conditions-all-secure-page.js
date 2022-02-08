@@ -191,7 +191,7 @@ const TermsConditionsAllSecurePage = () => {
             <li className='li-daviplata'>
               <p className='text-1 mb-2'>
                 Reparaciones no autorizadas o realizadas por fuera de los
-                centros técnios especializados avalados por Acinco.
+                centros técnicos especializados avalados por Acinco.
               </p>
             </li>
             <li className='li-daviplata'>
@@ -273,7 +273,7 @@ const TermsConditionsAllSecurePage = () => {
           <p className='text-1 mb-4'>
             Si por el contrario ACINCO S.A.S. da una respuesta negativa a la
             reclamación, deberá notificarle al usuario por escrito vía correo
-            electrónico, las caulsaes de objeción para la prestación de la
+            electrónico, las causalees de objeción para la prestación de la
             asistencia.
           </p>
           <h2>Límite máximo de responsabilidad</h2>
