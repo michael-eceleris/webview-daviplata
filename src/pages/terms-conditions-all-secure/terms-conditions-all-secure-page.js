@@ -219,7 +219,7 @@ const TermsConditionsAllSecurePage = () => {
           <p className='text-1 mb-4'>
             La solicitud del servicio se puede realizar a través de la línea 01
             8000 513 323 o en Bogotá al 4898599 de lunes a sábado de 8 am a 6
-            pm, pormedio del chat habilitado en la siguiente página
+            pm o por medio del chat habilitado en la siguiente página
             www.aseguratucelular.com.
           </p>
           <h2>Documentación</h2>
@@ -262,7 +262,7 @@ const TermsConditionsAllSecurePage = () => {
           </ul>
           <p className='text-1 mb-4'>
             En un máximo de cinco (5) días hábiles de radicar la documentación,
-            ACINCO S.A.S. analizará los documentos y dará una respuesta, Si es
+            ACINCO S.A.S. analizará los documentos y dará una respuesta. Si es
             pre-aprobado, se enviará al usuario una solicitud de pago para que
             realice el copago y una orden de reparación para que el equipo sea
             llevado a un punto logístico a nivel nacional autorizado por la
@@ -273,7 +273,7 @@ const TermsConditionsAllSecurePage = () => {
           <p className='text-1 mb-4'>
             Si por el contrario ACINCO S.A.S. da una respuesta negativa a la
             reclamación, deberá notificarle al usuario por escrito vía correo
-            electrónico, las causalees de objeción para la prestación de la
+            electrónico, las causales de objeción para la prestación de la
             asistencia.
           </p>
           <h2>Límite máximo de responsabilidad</h2>
