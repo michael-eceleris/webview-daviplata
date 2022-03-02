@@ -1,7 +1,7 @@
 import { serviceAxios } from "../service-axios";
 import { serviceRoutes } from "../service-routes";
 
-export const getToken = (key) => {
+export const getToken = (key, data) => {
   const url = serviceRoutes.auth.getToken(key);
-  return serviceAxios.get(url).then((res) => res.data);
+  return serviceAxios.post(url, data).then((res) => res.data);
 };

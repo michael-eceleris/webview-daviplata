@@ -21,8 +21,16 @@
     <div id="root"></div>
   </body>
   <script type="text/javascript">
-    function InitView(userSession){
-      sessionStorage.setItem('user', userSession);
+    function initView(userSession){
+      sessionStorage.setItem('content', userSession);
+      return 'ok'
+    }
+    function back(){
+      if(window.history.state === null){
+        return true;
+      }else {
+        window.history.back();
+      }
     }
 </script>
 </html>

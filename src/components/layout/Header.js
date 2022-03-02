@@ -3,10 +3,15 @@ import { useHistory } from "react-router-dom";
 
 import Back from "../../assets/icons/back.svg";
 import Times from "../../assets/icons/times.svg";
-
 import { useMobile } from "../../hooks/useMobile";
+
 const Header = () => {
-  const { goBack } = useHistory();
+  const { goBack, location } = useHistory();
+  const back = () => {
+    if (location.key) {
+      goBack();
+    }
+  };
   const { isMobile } = useMobile();
   return (
     <header
@@ -15,7 +20,7 @@ const Header = () => {
       }`}
     >
       <div className='container--icon'>
-        <img src={Back} onClick={goBack} alt='icon_back_app' />
+        <img src={Back} onClick={back} alt='icon_back_app' />
       </div>
       <h2 className='font--white font--regular font--18'>Tienda Virtual</h2>
       <div className='container--icon'>

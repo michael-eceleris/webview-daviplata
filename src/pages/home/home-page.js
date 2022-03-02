@@ -15,29 +15,38 @@ import SkeletonCard from "../../components/skeleton/card";
 
 import { useGetToken } from "../../services/auth/useAuth";
 import { serviceAxios } from "../../services/service-axios";
+import { useUser } from "../../providers/user/userProvider";
 
 const HomePage = () => {
   const { key } = useParams();
   const { push } = useHistory();
-  const { isLoading } = useGetToken(key, {
-    onSuccess: (data) => {
-      serviceAxios.interceptors.request.use((config) => {
-        config.headers.Authorization = `${data.data.type} ${data.data.token}`;
-        return config;
-      });
-    },
-    onError: (error) => {
-      push("/");
-    },
+  const { setUser } = useUser();
+  const { isLoading, mutateAsync: getToken } = useGetToken();
+
+  useEffect(() => {
+    window.initView(
+      "zG+B6Zy30LXsZCP5WhidBfHIbyvJOKP92koEZ7Bts6Epf3e5ViNQDcTfaCnDx+SZYqpltJjEvEatqKF71gMu5vJ2vW+s9Uby5ftPj39zraBinCnrlCEmLaqqQehJvGUllJftXVFuIbpnaMeWQTTmD/Et3Qj134UlxbqOiQxrF9CvFD1hwYyuydrhXl+pp+VWNvXTnwRpwojygmhdFogTwyX4lUAC3X+4mjYeMTdi1or0sot87jloqv1MZbRx0IJ2eMnblc9FNaJ52EGapexKF4e9Ye6YXgeYaqzjPlr0vP6GQQ5nO1EZjeaP0E0CHXa5SGL37rSu/iMqx1CI0jo/bDRmAAOcxvdtVwsEAl1Dp81GA3UUTSfs58zg1vLVEEP3"
+    );
   });
 
   useEffect(() => {
     const getUser = async () => {
-      const data = await sessionStorage.getItem("user");
-      console.log(`${data}, data`);
+      let data = await sessionStorage.getItem("content");
+      getToken({ key, data: { contentData: data } })
+        .then((res) => {
+          serviceAxios.interceptors.request.use((config) => {
+            config.headers.Authorization = `Bearer ${res.data.contentData}`;
+            return config;
+          });
+          setUser(res.data.user);
+        })
+        .catch((err) => {
+          push("/");
+        });
     };
     getUser();
-  });
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <Container>

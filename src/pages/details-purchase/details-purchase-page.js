@@ -22,6 +22,7 @@ import ErrorComponent from "../../components/error/Error";
 import ErrorMessage from "../../components/messages/error-messages";
 import { useImei } from "../../providers/imei/imeiProvider";
 import { useSecure } from "../../providers/secure/secureProvider";
+import { useUser } from "../../providers/user/userProvider";
 import { useCreatePolicy } from "../../services/secure/useSecure";
 import { CurrencyValue } from "../../utils/currencyValue";
 
@@ -80,6 +81,7 @@ const DetailsPurchase = () => {
   const [error, setError] = useState(null);
   const { push } = useHistory();
   const { key } = useParams();
+  const { user } = useUser();
   const {
     register,
     handleSubmit,
@@ -89,8 +91,8 @@ const DetailsPurchase = () => {
     resolver: joiResolver(schema),
     defaultValues: {
       imei,
-      email: "",
-      name: "",
+      email: user.email,
+      name: user.name,
       lastName: "",
       line: "",
       nit: "",
@@ -141,6 +143,7 @@ const DetailsPurchase = () => {
 
   return (
     <Container>
+      {console.log("user", user.client)}
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
         <When condition={!isLoading}>
           <div className='bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12'>
@@ -264,8 +267,9 @@ const DetailsPurchase = () => {
                   register={register("genderId")}
                   withClass='w-full'
                   options={[
-                    { value: "MASCULINO", name: "MASCULINO" },
-                    { value: "FEMENINO", name: "FEMENINO" },
+                    { value: 1, name: "Masculino" },
+                    { value: 2, name: "Femenino" },
+                    { value: 3, name: "No Binario" },
                   ]}
                   isFilled={
                     watch("genderId") !== "Sexo" &&

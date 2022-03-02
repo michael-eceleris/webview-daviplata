@@ -9,6 +9,7 @@ import { QueryClientProvider } from "react-query";
 
 import { ImeiProvider } from "./providers/imei/imeiProvider";
 import { SecureProvider } from "./providers/secure/secureProvider";
+import { UserProvider } from "./providers/user/userProvider";
 import PrivateRoute from "./components/routes/PrivateRoute";
 
 import Header from "./components/layout/Header";
@@ -35,70 +36,72 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <SecureProvider>
-            <ImeiProvider>
-              <Route exact path={"/"}>
-                <PrivateRoute component={WithoutKeyPage} />
-              </Route>
-              <PrivateRoute exact path={"/:key"} component={HomePage} />
-              <PrivateRoute
-                exact
-                path={"/:key/all-secure"}
-                component={AllSecurePage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/screen-secure"}
-                component={ScreenSecurePage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/check-imei"}
-                component={CheckImeiPage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/check-secure"}
-                component={CheckSecurePage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/details-purchase"}
-                component={DetailsPurchase}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/complete-purchase/:idPolicy"}
-                component={PurchaseComplete}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/confirmation-purchase"}
-                component={PurchaseConfirmation}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/screen-secure-terms-condition"}
-                component={TermsConditionsScreenSecurePage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/all-secure-terms-condition"}
-                component={TermsConditionsAllSecurePage}
-              />
-              <PrivateRoute
-                exact
-                path={"/:key/home-daviplata-app"}
-                component={HomeDaviplataAppPage}
-              />
-              <Route
-                exact
-                path={"/incompatible"}
-                component={IncompatiblePage}
-              />
-              <Route exact path={"/health"} component={HealthPage} />
-            </ImeiProvider>
-          </SecureProvider>
+          <UserProvider>
+            <SecureProvider>
+              <ImeiProvider>
+                <Route exact path={"/"}>
+                  <PrivateRoute component={WithoutKeyPage} />
+                </Route>
+                <PrivateRoute exact path={"/:key"} component={HomePage} />
+                <PrivateRoute
+                  exact
+                  path={"/:key/all-secure"}
+                  component={AllSecurePage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/screen-secure"}
+                  component={ScreenSecurePage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/check-imei"}
+                  component={CheckImeiPage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/check-secure"}
+                  component={CheckSecurePage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/details-purchase"}
+                  component={DetailsPurchase}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/complete-purchase/:idPolicy"}
+                  component={PurchaseComplete}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/confirmation-purchase"}
+                  component={PurchaseConfirmation}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/screen-secure-terms-condition"}
+                  component={TermsConditionsScreenSecurePage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/all-secure-terms-condition"}
+                  component={TermsConditionsAllSecurePage}
+                />
+                <PrivateRoute
+                  exact
+                  path={"/:key/home-daviplata-app"}
+                  component={HomeDaviplataAppPage}
+                />
+                <Route
+                  exact
+                  path={"/incompatible"}
+                  component={IncompatiblePage}
+                />
+                <Route exact path={"/health"} component={HealthPage} />
+              </ImeiProvider>
+            </SecureProvider>
+          </UserProvider>
         </Switch>
       </Router>
     </QueryClientProvider>
