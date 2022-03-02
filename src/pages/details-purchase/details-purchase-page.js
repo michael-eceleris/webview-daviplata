@@ -52,26 +52,13 @@ const schema = Joi.object({
     "string.empty": "*Este campo es obligatorio.",
     "any.required": "*Este campo es obligatorio.",
   }),
-  line: Joi.string()
-    .length(10)
-    .pattern(/^[0-9]+$/)
+  genderId: Joi.string()
+    .valid("MASCULINO", "FEMENINO", "NO BINARIO")
     .required()
     .messages({
       "string.empty": "*Este campo es obligatorio.",
-      "string.pattern.base": "Solo se admiten numeros",
-      "string.length": "El imei tiene que tener 10 digitos.",
+      "any.only": "*Este campo es obligatorio.",
     }),
-  nit: Joi.string()
-    .pattern(/^[0-9]+$/)
-    .required()
-    .messages({
-      "string.empty": "*Este campo es obligatorio.",
-      "string.pattern.base": "Solo se admiten numeros",
-    }),
-  genderId: Joi.string().valid("MASCULINO", "FEMENINO").required().messages({
-    "string.empty": "*Este campo es obligatorio.",
-    "any.only": "*Este campo es obligatorio.",
-  }),
 });
 
 const DetailsPurchase = () => {
@@ -94,8 +81,6 @@ const DetailsPurchase = () => {
       email: user.email,
       name: user.name,
       lastName: "",
-      line: "",
-      nit: "",
     },
   });
   const { mutateAsync: create, isLoading } = useCreatePolicy();
@@ -106,19 +91,15 @@ const DetailsPurchase = () => {
         firstName: values.name,
         lastName: values.lastName,
         email: values.email,
-        identification: {
-          type: "CEDULA_CIUDADANIA",
-          number: values.nit,
-        },
         genderId: values.genderId,
       },
       planId: Number(dataSecure.policy.id),
       device: {
         imei,
-        line: values.line,
       },
       sponsorId: "DAVIPLATA",
       priceOptionId: Number(dataSecure.policy.pricingOptions[0].id),
+      insurranceValue,
     };
     create(data)
       .then((res) => {
@@ -129,7 +110,7 @@ const DetailsPurchase = () => {
           });
         }
       })
-      .catch(() => {
+      .catch((error) => {
         setError({
           codeError: error.response.data.error.code,
           mesagge: error.response.data.error.message,
@@ -143,7 +124,6 @@ const DetailsPurchase = () => {
 
   return (
     <Container>
-      {console.log("user", user.client)}
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
         <When condition={!isLoading}>
           <div className='bg-white rounded-2xl px-8 md:px-8 lg:px-8 py-12'>
@@ -236,40 +216,14 @@ const DetailsPurchase = () => {
                   widthClass='mt-1'
                   message={errors && errors.email && errors.email.message}
                 />
-                <h2 className='mt-3.5 -mb-1'>Celular</h2>
-                <Input
-                  register={register("line")}
-                  type={"text"}
-                  withClass={`text-input-empty text-1 mt-1`}
-                  placeholder='Celular'
-                  isPrechargue={false}
-                  isFilled={true}
-                />
-                <ErrorMessage
-                  widthClass='mt-1'
-                  message={errors && errors.line && errors.line.message}
-                />
-                <h2 className='mt-3.5 -mb-1'>Identificación</h2>
-                <Input
-                  register={register("nit")}
-                  type={"text"}
-                  withClass={`text-input-empty text-1 mt-1`}
-                  placeholder='Identificación'
-                  isPrechargue={false}
-                  isFilled={true}
-                />
-                <ErrorMessage
-                  widthClass='mt-1'
-                  message={errors && errors.nit && errors.nit.message}
-                />
                 <h2 className='mt-3.5 -mb-1'>Sexo</h2>
                 <Select
                   register={register("genderId")}
                   withClass='w-full'
                   options={[
-                    { value: 1, name: "Masculino" },
-                    { value: 2, name: "Femenino" },
-                    { value: 3, name: "No Binario" },
+                    { value: "MASCULINO", name: "Masculino" },
+                    { value: "FEMENINO", name: "Femenino" },
+                    { value: "NO BINARIO", name: "No Binario" },
                   ]}
                   isFilled={
                     watch("genderId") !== "Sexo" &&
