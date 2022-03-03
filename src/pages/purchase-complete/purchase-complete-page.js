@@ -15,14 +15,60 @@ import DaviplataNotifications from "../../assets/icons/bar-notifications.svg";
 import { useSecure } from "../../providers/secure/secureProvider";
 import { CurrencyValue } from "../../utils/currencyValue";
 import { useGetFilePolicy } from "../../services/secure/useSecure";
+import { useEncryptData } from "../../services/encrpyt/useEncrypt";
+import { useMobile } from "../../hooks/useMobile";
+import { usePostMessage } from "../../hooks/usePostMessage";
+import { useUser } from "../../providers/user/userProvider";
 
 const PurchaseComplete = () => {
   const { state } = useLocation();
   const { push } = useHistory();
   const { key, idPolicy } = useParams();
   const { insurranceValue } = useSecure();
+  const { user } = useUser();
+  const { isIphone } = useMobile();
+  const { handlePostMessage } = usePostMessage();
   const { handleSubmit } = useForm({});
-  const { data } = useGetFilePolicy({ id: idPolicy });
+  const { data: File } = useGetFilePolicy(
+    { id: idPolicy },
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+  const { mutateAsync: getEncryptedData, isLoading: isLoadingEncrypted } =
+    useEncryptData();
+
+  const handleShare = () => {
+    let data = {
+      client: {
+        email: user?.email,
+      },
+      content: {
+        errorCode: 0,
+        file: File?.data?.file,
+        type: 0,
+      },
+    };
+    getEncryptedData(data).then((res) => {
+      handlePostMessage(isIphone, "share", res.contentData);
+    });
+  };
+
+  const handleDownload = () => {
+    let data = {
+      client: {
+        email: user?.email,
+      },
+      content: {
+        errorCode: 0,
+        file: File?.data?.file,
+        type: 1,
+      },
+    };
+    getEncryptedData(data).then((res) => {
+      handlePostMessage(isIphone, "share", res.contentData);
+    });
+  };
 
   const submit = (values) => {
     push({ pathname: `/${key}/confirmation-purchase`, state });
@@ -31,7 +77,6 @@ const PurchaseComplete = () => {
   return (
     <Container>
       <div className='relative col-span-full gap-2 mb-auto mt-auto pb-5'>
-        {console.log("data", data?.data)}
         <div className='bg-white rounded-2xl px-6 md:px-8 lg:px-8 py-12'>
           <SmallBrand />
           <Switch>
@@ -65,8 +110,11 @@ const PurchaseComplete = () => {
             className='my-5'
           />
           <div className='flex justify-evenly'>
-            <ShareButton />
-            <DownloadButton />
+            <ShareButton onClick={handleShare} isLoading={isLoadingEncrypted} />
+            <DownloadButton
+              onClick={handleDownload}
+              isLoading={isLoadingEncrypted}
+            />
           </div>
         </div>
         <div className='absolute btn--active__out'>

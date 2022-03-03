@@ -9,4 +9,7 @@ export const serviceRoutes = {
     create: () => `/api/v1/policy`,
     getFile: () => `/api/v1/policy`,
   },
+  encrypt: {
+    getContent: () => `/api/v1/encrypt`,
+  },
 };

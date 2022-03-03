@@ -1,12 +1,12 @@
 import React from "react";
 import { BsShare } from "react-icons/bs";
 
-const ShareButton = () => {
+const ShareButton = ({ onClick }) => {
   return (
-    <div className='btn--share'>
+    <button className='btn--share' onClick={onClick}>
       <BsShare fontSize={"22px"} />
       <p>Compartir</p>
-    </div>
+    </button>
   );
 };
 
