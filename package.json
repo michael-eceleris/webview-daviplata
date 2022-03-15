@@ -47,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/morgan": "^1.9.3",
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
     "react-error-overlay": "^6.0.9",
